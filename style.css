@@ -12,9 +12,8 @@ body {
     margin: 0;
     padding: 0;
     
-    /* L'image de background avec un voile blanc transparent (0.2) par-dessus */
-    background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), 
-                url('IMG_0258.png'); 
+    
+    background: url('IMG_0258.png'); 
     
     background-size: cover;
     background-position: center;
