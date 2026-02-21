@@ -1,3 +1,24 @@
-body {
-    background: linear-gradient(to right, #ff7e5f, #feb47b);
+.header {
+    /* Header styles here */
+}
+
+.nav {
+    /* Navigation styles here */
+}
+
+.hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    /* Hero styles here */
+}
+
+.cards {
+    /* Card styles here */
+}
+
+.footer {
+    /* Footer styles here */
+}
+
+@media (max-width: 768px) {
+    /* Responsive styles here */
 }
