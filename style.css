@@ -5,39 +5,48 @@
     box-sizing: border-box;
     }
     
-    /* Style de la page d'entrée plein écran */
+    /* Reset indispensable pour tous les navigateurs */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* Évite le scroll horizontal parasite */
+}
+
 #splash-screen {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;   /* 100% de la largeur de la fenêtre */
-    height: 100vh;  /* 100% de la hauteur de la fenêtre */
-    background-color: #ffffff; 
+    width: 100vw; /* Utilise 100% de la largeur de la vue */
+    height: 100vh; /* Utilise 100% de la hauteur de la vue */
+    background-color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999;
-    overflow: hidden; /* Empêche le scroll pendant l'anim */
+    z-index: 10000;
     
+    /* Animation */
     animation: fadeOut 1s ease-in-out forwards;
     animation-delay: 4s;
 }
 
 .splash-logo {
-    width: 100%;    /* Force l'image à prendre toute la largeur */
-    height: 100%;   /* Force l'image à prendre toute la hauteur */
-    object-fit: cover; /* TRÈS IMPORTANT : Recouvre l'écran sans déformer le logo */
+    width: 100%;
+    height: 100%;
+    /* L'arme secrète pour le multi-écran */
+    object-fit: cover; 
+    /* 'cover' remplit tout l'écran. 
+       Si tu veux voir TOUTE l'image sans qu'elle soit coupée, 
+       utilise 'contain' à la place de 'cover' */
+    
+    object-position: center; /* Garde le logo bien au milieu */
 }
 
-
-/* L'animation qui fait disparaître l'écran et le retire du clic */
 @keyframes fadeOut {
-    0% { opacity: 1; }
-    90% { opacity: 0; visibility: visible; }
+    0% { opacity: 1; visibility: visible; }
     100% { opacity: 0; visibility: hidden; pointer-events: none; }
-}
-
-
+} 
 
 
 body {
