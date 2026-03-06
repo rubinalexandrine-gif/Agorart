@@ -42,3 +42,22 @@ document.addEventListener('DOMContentLoaded', () => {
         logo.style.transform = `translateX(${moveX}px) translateY(${moveY}px)`;
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const splash = document.getElementById('splash-screen');
+    
+    // On vérifie si "dejaVisite" existe dans la mémoire du navigateur
+    if (sessionStorage.getItem('dejaVisite')) {
+        // Si oui, on cache le splash immédiatement sans attendre
+        if (splash) splash.style.display = 'none';
+    } else {
+        // Si c'est la première fois, on montre l'animation
+        setTimeout(() => {
+            if (splash) {
+                splash.classList.add('fade-out');
+                // On enregistre qu'il a vu l'animation
+                sessionStorage.setItem('dejaVisite', 'true');
+            }
+        }, 3000); // 3 secondes
+    }
+});
