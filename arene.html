@@ -57,6 +57,48 @@
             </div>
         </section> 
         
+        <section id="soumission" class="section">
+    <h2 class="section-title">Déposer votre œuvre</h2>
+    <div class="card" style="max-width: 600px; margin: 0 auto; padding: 30px;">
+        <form action="https://formspree.io/f/VOTRE_ID_ICI" method="POST" enctype="multipart/form-data">
+            
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 5px; font-weight: 600;">Nom ou Pseudonyme</label>
+                <input type="text" name="name" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px;">
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 5px; font-weight: 600;">E-mail scolaire</label>
+                <input type="email" name="email" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px;">
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 5px; font-weight: 600;">Sélectionner le concours</label>
+                <select name="concours" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px;">
+                    <option value="dessin">Défi Dessin : Demain</option>
+                    <option value="chant">Concours de Chant</option>
+                    <option value="autre">Autre Talent</option>
+                </select>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 5px; font-weight: 600;">Lien de votre œuvre (Drive, Insta, ou fichier)</label>
+                <input type="file" name="upload" style="width: 100%; padding: 10px; background: #f9f9f9; border-radius: 8px;">
+                <p style="font-size: 0.8rem; color: #666; margin-top: 5px;">Vous pouvez aussi coller un lien Google Drive dans le message si le fichier est trop lourd.</p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 5px; font-weight: 600;">Petit mot sur votre création</label>
+                <textarea name="message" rows="4" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px;"></textarea>
+            </div>
+
+            <button type="submit" class="btn-arene" style="width: 100%; border: none; cursor: pointer;">
+                Envoyer ma participation
+            </button>
+        </form>
+    </div>
+</section>
+        
         <section style="text-align: center; padding: 40px 0;">
     <p>Vous avez une question sur un concours ? <a href="index.html#contact" style="color: #bf953f;">Contactez l'équipe</a></p>
 </section>
