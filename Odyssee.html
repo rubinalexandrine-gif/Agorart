@@ -37,45 +37,34 @@
                 <div class="card">
                     <div class="card-image" style="background-image: url('carte-interactif.jpg');">
                         <span class="category">Map</span>
-                        <section class="odyssee-section">
-    <h2 class="titre-odyssee">L'Exploration Virtuelle</h2>
-    <p>Cliquez sur les bâtiments pour découvrir les secrets de Marie-Anne.</p>
-
+                        <div class="card-content">
+    <span class="tag-map">Map</span>
+    
     <div class="map-wrapper">
-        <div class="building building-u" onclick="showInfo('Bâtiment Principal', 'Le cœur historique où se trouvent l\'administration et les salles de classe classiques.')"></div>
-        
-        <div class="building building-wing" onclick="showInfo('L\'Aile Est', 'C\'est ici que l\'on retrouve souvent les laboratoires et les espaces spécialisés.')"></div>
-        
-        <div class="building building-hall" onclick="showInfo('Le Grand Hall', 'Un espace polyvalent pour le sport et les grands rassemblements du collège.')"></div>
-
+        <div class="building building-u" onclick="showInfo('Bâtiment Principal', 'Le cœur historique de Marie-Anne.')"></div>
+        <div class="building building-wing" onclick="showInfo('L\'Aile Est', 'Salles de classes et laboratoires.')"></div>
+        <div class="building building-hall" onclick="showInfo('Le Hall', 'Espace polyvalent et sportif.')"></div>
         <div class="cour-tracee"></div>
 
-        <div class="hotspot" style="top: 25%; left: 47%;" onclick="showInfo('L\'Entrée d\'Honneur', 'Le point de passage de tous les élèves depuis des décennies.')">
+        <div class="hotspot" style="top: 25%; left: 47%;" onclick="showInfo('L\'Entrée', 'Point de passage principal.')">
             <span class="pulse"></span>
         </div>
-
-        <div class="hotspot" style="top: 55%; left: 45%;" onclick="showInfo('La Cour de Récréation', 'Le lieu où les talents s\'expriment librement durant les pauses.')">
+        <div class="hotspot" style="top: 55%; left: 45%;" onclick="showInfo('La Cour', 'Le centre de la vie scolaire.')">
             <span class="pulse"></span>
         </div>
     </div>
 
     <div id="info-panel" class="info-panel hidden">
-        <div class="info-content">
-            <h3 id="panel-title">Lieu</h3>
-            <p id="panel-desc">Description...</p>
-            <button class="btn-close" onclick="closeInfo()">Fermer</button>
-        </div>
+        <h3 id="panel-title">Lieu</h3>
+        <p id="panel-desc">Description...</p>
+        <button onclick="closeInfo()">✕</button>
     </div>
-</section>
-                    </div>
-                    
-                    
-                    <div class="card-content">
-                        <h3>Carte Interactive</h3>
-                        <p>Une visite virtuelle pour ne plus jamais se perdre entre deux salles d'art.</p>
-                        <a href="#" class="btn-read">Explorer</a>
-                    </div>
-                </div>
+
+    <h2>Carte Interactive</h2>
+    <p>Une visite virtuelle pour ne plus jamais se perdre entre deux salles d'art.</p>
+</div>
+                        
+                     
 
                 <div class="card">
                     <div class="card-image" style="background-image: url('anecdotes.jpg');">
