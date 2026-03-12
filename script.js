@@ -61,3 +61,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 3000); // 3 secondes
     }
 });
+
+// Fonction pour afficher les infos d'un lieu
+function showInfo(titre, texte) {
+    const panel = document.getElementById('info-panel');
+    const titleElem = document.getElementById('panel-title');
+    const descElem = document.getElementById('panel-desc');
+
+    titleElem.innerText = titre;
+    descElem.innerText = texte;
+
+    // Affiche le panneau
+    panel.classList.remove('hidden');
+}
+
+// Fonction pour fermer le panneau
+function closeInfo() {
+    const panel = document.getElementById('info-panel');
+    panel.classList.add('hidden');
+}
