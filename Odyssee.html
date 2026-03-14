@@ -36,23 +36,21 @@
             <div class="grid-talents">
                 
                 <div class="card">
-                    <div class="card-image" style="background-image: url('carte-interactif.jpg');">
-                        <span class="category">Map</span>
-                    </div>
-                    
                     <div class="card-content">
-                        <span class="tag-map">Plan interactif</span>
+                        <span class="tag-map">Plan du Collège</span>
                         
                         <div class="map-wrapper">
-                            <div class="building building-u" onclick="showInfo('Bâtiment Principal', 'Le cœur historique de l\'établissement.')"></div>
-                            <div class="building building-wing" onclick="showInfo('L\'Aile Est', 'Salles de classes et laboratoires.')"></div>
-                            <div class="building building-hall" onclick="showInfo('Le Hall', 'Espace polyvalent et sportif.')"></div>
-                            <div class="cour-tracee"></div>
+                            <div class="building bat-nord" onclick="showInfo('Bâtiment Nord', 'Salles de classe supérieures.')"></div>
+                            <div class="building bat-ouest" onclick="showInfo('Aile Ouest', 'Administration et laboratoires.')"></div>
+                            <div class="building bat-sud" onclick="showInfo('Bâtiment Sud', 'Espace de vie et réfectoire.')"></div>
+                            <div class="building bat-annexe" onclick="showInfo('Annexe', 'Salles spécialisées.')"></div>
+                            
+                            <div class="cour-principale"></div>
 
-                            <div class="hotspot" style="top: 25%; left: 47%;" onclick="showInfo('L\'Entrée', 'Point de passage principal.')">
+                            <div class="hotspot" style="top: 15%; left: 45%;" onclick="showInfo('Entrée Principale', 'Accès Rue du Christ-Roi.')">
                                 <span class="pulse"></span>
                             </div>
-                            <div class="hotspot" style="top: 55%; left: 45%;" onclick="showInfo('La Cour', 'Le centre de la vie scolaire.')">
+                            <div class="hotspot" style="top: 60%; left: 40%;" onclick="showInfo('La Grande Cour', 'Cœur battant du collège.')">
                                 <span class="pulse"></span>
                             </div>
                         </div>
@@ -60,13 +58,15 @@
                         <div id="info-panel" class="info-panel hidden">
                             <h3 id="panel-title">Lieu</h3>
                             <p id="panel-desc">Description...</p>
-                            <button onclick="closeInfo()">✕</button>
+                            <button onclick="closeInfo()">✕ Fermer</button>
                         </div>
 
                         <h2>Carte Interactive</h2>
-                        <p>Une visite virtuelle pour ne plus jamais se perdre entre deux salles.</p>
+                        <p>Une vue fidèle pour explorer chaque recoin du Collège Marie-Anne.</p>
                     </div>
-                </div> <div class="card">
+                </div>
+
+                <div class="card">
                     <div class="card-image" style="background-image: url('anecdotes.jpg');">
                         <span class="category">Histoires</span>
                     </div>
@@ -75,7 +75,9 @@
                         <p>Découvrez les témoignages et les moments forts des anciens élèves.</p>
                         <a href="#" class="btn-read">Lire</a>
                     </div>
-                </div> </div>
+                </div>
+
+            </div>
         </section>
     </main>
 
@@ -86,9 +88,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-              
