@@ -288,45 +288,45 @@ footer {
 }
 
 /* Positions précises des bâtiments (Marie-Anne) */
+
 .bat-nord { 
-    width: 50%; 
-    height: 15%; 
+    width: 60%; 
+    height: 12%; 
     top: 10%; 
     left: 20%; 
-    clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+    clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%);
 }
 
 .bat-ouest { 
-    width: 12%; 
-    height: 45%; 
-    top: 25%; 
+    width: 8%; /* Plus fin, comme les ailes réelles */
+    height: 55%; 
+    top: 20%; 
     left: 20%; 
 }
 
 .bat-sud { 
-    width: 40%; 
-    height: 12%; 
-    top: 70%; 
+    width: 45%; 
+    height: 10%; 
+    top: 75%; 
     left: 20%; 
 }
 
+/* L'aile qui revient vers l'intérieur sur la photo satellite */
 .bat-annexe { 
     width: 15%; 
-    height: 20%; 
-    top: 40%; 
-    left: 72%; 
-    transform: rotate(-5deg);
+    height: 30%; 
+    top: 35%; 
+    left: 65%; /* Plus proche de la cour */
 }
 
 .cour-principale {
     position: absolute;
-    width: 35%;
-    height: 35%;
-    top: 30%;
-    left: 35%;
-    border: 1px dashed #bf953f;
-    background: rgba(191, 149, 63, 0.05);
-    z-index: 1;
+    width: 40%;
+    height: 50%;
+    top: 22%;
+    left: 28%;
+    border: 1px dashed rgba(191, 149, 63, 0.4);
+    background: rgba(0, 0, 0, 0.02);
 }
 
 /* Points interactifs */
