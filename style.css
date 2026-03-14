@@ -263,89 +263,96 @@ footer {
     }
 }
 
-/* --- Styles de la Carte Virtuelle Agorart --- */
+/* --- Styles de la Carte Réaliste --- */
 
 .map-wrapper {
     position: relative;
     width: 100%;
-    height: 300px; /* Légèrement réduit pour mieux tenir sur écran mobile */
-    background: #ffffff;
+    height: 400px; /* Plus d'espace pour la structure */
+    background: #f4f4f4;
     border-radius: 15px;
     margin: 20px 0;
     overflow: hidden;
-    border: 1px solid rgba(191, 149, 63, 0.2);
-    box-shadow: inset 0 0 20px rgba(0,0,0,0.02);
+    border: 1px solid rgba(191, 149, 63, 0.3);
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.05);
 }
 
-/* Structure principale en U */
-.building-u {
+.building {
     position: absolute;
-    width: 45%;
-    height: 25%;
-    top: 15%;
-    left: 27%;
-    border: 8px solid #1a2a44; /* Épaisseur ajustée */
-    border-bottom: none;
-    border-radius: 5px;
-    transition: 0.3s;
-    z-index: 2;
-}
-
-/* Aile latérale droite */
-.building-wing {
-    position: absolute;
-    width: 10%;
-    height: 35%;
-    top: 45%;
-    left: 62%;
     background: #1a2a44;
-    border-radius: 4px;
-    box-shadow: 2px 2px 0px #bf953f;
-    z-index: 2;
+    border: 2px solid #2c3e50;
+    box-shadow: 4px 4px 0px rgba(191, 149, 63, 0.4);
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
-/* Le Hall / Gymnase */
-.building-hall {
-    position: absolute;
-    width: 22%;
-    height: 18%;
+.building:hover {
+    background: #bf953f;
+    transform: scale(1.02);
+}
+
+/* Bâtiment Nord (Haut de la photo) */
+.bat-nord {
+    width: 50%;
+    height: 15%;
+    top: 10%;
+    left: 20%;
+    clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+}
+
+/* Aile Ouest (Côté gauche qui descend) */
+.bat-ouest {
+    width: 12%;
+    height: 45%;
+    top: 25%;
+    left: 20%;
+}
+
+/* Bâtiment Sud (En bas, forme en L) */
+.bat-sud {
+    width: 40%;
+    height: 12%;
     top: 70%;
-    left: 15%;
-    background: #1a2a44;
-    opacity: 0.9;
-    border-radius: 4px;
-    z-index: 2;
+    left: 20%;
 }
 
-/* AJOUT : Style pour la cour tracée */
-.cour-tracee {
-    position: absolute;
-    width: 30%;
-    height: 30%;
+/* L'Annexe (Petite structure à droite) */
+.bat-annexe {
+    width: 15%;
+    height: 20%;
     top: 40%;
-    left: 35%;
-    border: 2px dashed rgba(191, 149, 63, 0.3);
-    border-radius: 50%;
-    z-index: 1;
+    left: 70%;
+    transform: rotate(-5deg);
 }
 
-/* Points interactifs (Hotspots) */
+/* La Cour Centrale */
+.cour-principale {
+    position: absolute;
+    width: 35%;
+    height: 35%;
+    top: 30%;
+    left: 35%;
+    border: 1px dashed #bf953f;
+    background: rgba(191, 149, 63, 0.05);
+    border-radius: 8px;
+}
+
+/* Points interactifs */
 .hotspot {
     position: absolute;
-    width: 16px; /* Un peu plus grand pour faciliter le clic sur mobile */
-    height: 16px;
+    width: 18px;
+    height: 18px;
     background: #bf953f;
     border-radius: 50%;
-    cursor: pointer;
-    z-index: 5;
-    border: 2px solid white;
+    z-index: 10;
+    border: 2px solid #fff;
 }
 
 .pulse {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: rgba(191, 149, 63, 0.6);
+    background: rgba(191, 149, 63, 0.5);
     border-radius: 50%;
     animation: gold-pulse 2s infinite;
 }
@@ -355,32 +362,28 @@ footer {
     100% { transform: scale(3); opacity: 0; }
 }
 
-/* Panneau d'information */
+/* Fenêtre d'info */
 .info-panel {
     position: absolute;
-    bottom: 10px; /* Placé en bas pour ne pas cacher le haut du bâtiment */
-    left: 10px;
-    right: 10px;
-    background: rgba(255, 255, 255, 0.98);
-    padding: 12px;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background: white;
+    padding: 15px;
     border-radius: 10px;
-    border-left: 4px solid #bf953f;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    z-index: 10;
-    font-size: 0.85rem;
+    border-left: 5px solid #bf953f;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    z-index: 20;
 }
 
-/* Correction du sélecteur du bouton */
 .info-panel button {
     background: #1a2a44;
     color: white;
     border: none;
-    padding: 5px 12px;
+    padding: 8px 15px;
     border-radius: 5px;
-    font-size: 0.7rem;
+    margin-top: 10px;
     cursor: pointer;
-    margin-top: 8px;
-    display: block;
 }
 
 .hidden { display: none !important; }
