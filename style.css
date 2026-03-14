@@ -268,7 +268,7 @@ footer {
 .map-wrapper {
     position: relative;
     width: 100%;
-    height: 350px; /* Ajusté pour ton bloc blanc */
+    height: 300px; /* Légèrement réduit pour mieux tenir sur écran mobile */
     background: #ffffff;
     border-radius: 15px;
     margin: 20px 0;
@@ -284,10 +284,11 @@ footer {
     height: 25%;
     top: 15%;
     left: 27%;
-    border: 10px solid #1a2a44; /* Bleu profond */
+    border: 8px solid #1a2a44; /* Épaisseur ajustée */
     border-bottom: none;
     border-radius: 5px;
     transition: 0.3s;
+    z-index: 2;
 }
 
 /* Aile latérale droite */
@@ -299,10 +300,11 @@ footer {
     left: 62%;
     background: #1a2a44;
     border-radius: 4px;
-    box-shadow: 3px 3px 0px #bf953f; /* Petite touche dorée */
+    box-shadow: 2px 2px 0px #bf953f;
+    z-index: 2;
 }
 
-/* Le Hall / Gymnase (en bas à gauche) */
+/* Le Hall / Gymnase */
 .building-hall {
     position: absolute;
     width: 22%;
@@ -310,16 +312,29 @@ footer {
     top: 70%;
     left: 15%;
     background: #1a2a44;
-    opacity: 0.8;
+    opacity: 0.9;
     border-radius: 4px;
+    z-index: 2;
+}
+
+/* AJOUT : Style pour la cour tracée */
+.cour-tracee {
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    top: 40%;
+    left: 35%;
+    border: 2px dashed rgba(191, 149, 63, 0.3);
+    border-radius: 50%;
+    z-index: 1;
 }
 
 /* Points interactifs (Hotspots) */
 .hotspot {
     position: absolute;
-    width: 14px;
-    height: 14px;
-    background: #bf953f; /* Or Agorart */
+    width: 16px; /* Un peu plus grand pour faciliter le clic sur mobile */
+    height: 16px;
+    background: #bf953f;
     border-radius: 50%;
     cursor: pointer;
     z-index: 5;
@@ -343,27 +358,29 @@ footer {
 /* Panneau d'information */
 .info-panel {
     position: absolute;
-    top: 10px;
+    bottom: 10px; /* Placé en bas pour ne pas cacher le haut du bâtiment */
+    left: 10px;
     right: 10px;
-    width: 180px;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 15px;
+    background: rgba(255, 255, 255, 0.98);
+    padding: 12px;
     border-radius: 10px;
     border-left: 4px solid #bf953f;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     z-index: 10;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
-.hidden { display: none; }
-
-.btn-close {
+/* Correction du sélecteur du bouton */
+.info-panel button {
     background: #1a2a44;
     color: white;
     border: none;
-    padding: 5px 10px;
+    padding: 5px 12px;
     border-radius: 5px;
     font-size: 0.7rem;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 8px;
+    display: block;
 }
+
+.hidden { display: none !important; }
