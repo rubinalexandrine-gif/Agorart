@@ -279,12 +279,17 @@ footer {
 
 .building {
     position: absolute;
-    background: #1a2a44;
+    background-color: #1a2a44 !important; /* Le !important force la couleur */
     border: 2px solid #2c3e50;
-    box-shadow: 4px 4px 0px rgba(191, 149, 63, 0.4);
-    transition: all 0.3s ease;
-    cursor: pointer;
+    z-index: 5; /* Pour être sûr qu'ils ne sont pas derrière le fond blanc */
+    display: block !important;
 }
+
+/* Vérifie bien les positions */
+.bat-nord { width: 50%; height: 15%; top: 10%; left: 20%; }
+.bat-ouest { width: 12%; height: 45%; top: 25%; left: 20%; }
+.bat-sud { width: 40%; height: 12%; top: 70%; left: 20%; }
+.bat-annexe { width: 15%; height: 20%; top: 40%; left: 70%; }
 
 .building:hover {
     background: #bf953f;
