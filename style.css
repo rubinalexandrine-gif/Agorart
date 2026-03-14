@@ -333,9 +333,6 @@ footer {
     background: rgba(191, 149, 63, 0.03);
 }
 
-/* On ajuste les points pour qu'ils tombent pile sur les nouveaux bâtiments */
-.hotspot:nth-of-type(1) { top: 15% !important; left: 45% !important; } /* Entrée */
-.hotspot:nth-of-type(2) { top: 55% !important; left: 35% !important; } /* Cour */
 
 /* Points interactifs */
 .hotspot {
