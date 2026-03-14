@@ -263,74 +263,61 @@ footer {
     }
 }
 
-/* --- Styles de la Carte Réaliste --- */
+/* --- Styles de la Carte Réaliste Corrigés --- */
 
 .map-wrapper {
     position: relative;
     width: 100%;
-    height: 400px; /* Plus d'espace pour la structure */
-    background: #f4f4f4;
+    height: 400px;
+    background: #ffffff !important; /* On force le fond blanc */
     border-radius: 15px;
     margin: 20px 0;
     overflow: hidden;
     border: 1px solid rgba(191, 149, 63, 0.3);
     box-shadow: inset 0 0 30px rgba(0,0,0,0.05);
-}
-
-.building {
-    position: absolute;
-    background-color: #1a2a44 !important; /* Le !important force la couleur */
-    border: 2px solid #2c3e50;
-    z-index: 5; /* Pour être sûr qu'ils ne sont pas derrière le fond blanc */
     display: block !important;
 }
 
-/* Vérifie bien les positions */
-.bat-nord { width: 50%; height: 15%; top: 10%; left: 20%; }
-.bat-ouest { width: 12%; height: 45%; top: 25%; left: 20%; }
-.bat-sud { width: 40%; height: 12%; top: 70%; left: 20%; }
-.bat-annexe { width: 15%; height: 20%; top: 40%; left: 70%; }
-
-.building:hover {
-    background: #bf953f;
-    transform: scale(1.02);
+/* On définit une règle commune pour TOUS les bâtiments */
+.building {
+    position: absolute !important;
+    background-color: #1a2a44 !important; /* Bleu foncé Agorart */
+    border: 2px solid #2c3e50;
+    z-index: 5 !important; /* Pour passer devant le fond */
+    display: block !important;
 }
 
-/* Bâtiment Nord (Haut de la photo) */
-.bat-nord {
-    width: 50%;
-    height: 15%;
-    top: 10%;
-    left: 20%;
+/* Positions précises des bâtiments (Marie-Anne) */
+.bat-nord { 
+    width: 50%; 
+    height: 15%; 
+    top: 10%; 
+    left: 20%; 
     clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
 }
 
-/* Aile Ouest (Côté gauche qui descend) */
-.bat-ouest {
-    width: 12%;
-    height: 45%;
-    top: 25%;
-    left: 20%;
+.bat-ouest { 
+    width: 12%; 
+    height: 45%; 
+    top: 25%; 
+    left: 20%; 
 }
 
-/* Bâtiment Sud (En bas, forme en L) */
-.bat-sud {
-    width: 40%;
-    height: 12%;
-    top: 70%;
-    left: 20%;
+.bat-sud { 
+    width: 40%; 
+    height: 12%; 
+    top: 70%; 
+    left: 20%; 
 }
 
-/* L'Annexe (Petite structure à droite) */
-.bat-annexe {
-    width: 15%;
-    height: 20%;
-    top: 40%;
-    left: 70%;
+.bat-annexe { 
+    width: 15%; 
+    height: 20%; 
+    top: 40%; 
+    left: 72%; 
     transform: rotate(-5deg);
 }
 
-/* La Cour Centrale */
 .cour-principale {
     position: absolute;
     width: 35%;
@@ -339,7 +326,7 @@ footer {
     left: 35%;
     border: 1px dashed #bf953f;
     background: rgba(191, 149, 63, 0.05);
-    border-radius: 8px;
+    z-index: 1;
 }
 
 /* Points interactifs */
@@ -347,10 +334,11 @@ footer {
     position: absolute;
     width: 18px;
     height: 18px;
-    background: #bf953f;
+    background: #bf953f !important;
     border-radius: 50%;
-    z-index: 10;
+    z-index: 10 !important;
     border: 2px solid #fff;
+    cursor: pointer;
 }
 
 .pulse {
@@ -366,29 +354,3 @@ footer {
     0% { transform: scale(1); opacity: 1; }
     100% { transform: scale(3); opacity: 0; }
 }
-
-/* Fenêtre d'info */
-.info-panel {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    border-left: 5px solid #bf953f;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    z-index: 20;
-}
-
-.info-panel button {
-    background: #1a2a44;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    margin-top: 10px;
-    cursor: pointer;
-}
-
-.hidden { display: none !important; }
