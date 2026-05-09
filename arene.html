@@ -12,11 +12,17 @@
     <header>
         <div class="nav-container">
             <a href="index.html" class="logo-text">Agor<b>art</b></a>
-            <nav>
+            <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav id="main-nav">
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
                     <li><a href="arene.html" style="color: #bf953f;">L'Arène</a></li>
-                    <li><a href="Odyssee.html">L'Odyssée</a></li>
+                    <li><a href="odyssee.html">L'Odyssée</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                     <li><a href="index.html#equipe">Équipe</a></li>
                 </ul>
             </nav>
@@ -34,24 +40,24 @@
             <h2 class="section-title">Concours en cours</h2>
             <div class="grid-talents">
                 <div class="card">
-                    <div class="card-image" style="background-image: url('defi1.jpg');">
+                    <div class="card-image" style="background-image: url('IMG_0315.jpeg');">
                         <span class="category">En cours</span>
                     </div>
                     <div class="card-content">
                         <h3>Défi Dessin : "Demain"</h3>
                         <p>Imaginez le futur de notre école à travers une œuvre originale. Date limite : 15 mars.</p>
-                        <a href="#" class="btn-read">Participer</a>
+                        <a href="#soumission" class="btn-read">Participer</a>
                     </div>
                 </div>
 
                 <div class="card">
-                    <div class="card-image" style="background-image: url('defi2.jpg');">
+                    <div class="card-image" style="background-image: url('IMG_0320.jpeg');">
                         <span class="category">Vote</span>
                     </div>
                     <div class="card-content">
                         <h3>Concours de Chant</h3>
                         <p>Les auditions sont terminées. C'est l'heure de voter pour votre voix préférée !</p>
-                        <a href="#" class="btn-read">Voter</a>
+                        <a href="#soumission" class="btn-read">Participer au vote</a>
                     </div>
                 </div>
             </div>
@@ -102,7 +108,7 @@
 </section>
         
         <section style="text-align: center; padding: 40px 0;">
-    <p>Vous avez une question sur un concours ? <a href="index.html#contact" style="color: #bf953f;">Contactez l'équipe</a></p>
+    <p>Vous avez une question sur un concours ? <a href="contact.html" style="color: #bf953f;">Contactez l'équipe</a></p>
 </section>
 
         </div>

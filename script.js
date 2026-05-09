@@ -1,22 +1,42 @@
 
 document.addEventListener('DOMContentLoaded', () => {
+    const navToggle = document.querySelector('.nav-toggle');
+    const mainNav = document.getElementById('main-nav');
+
+    if (navToggle && mainNav) {
+        navToggle.addEventListener('click', () => {
+            const isOpen = mainNav.classList.toggle('is-open');
+            navToggle.classList.toggle('is-open', isOpen);
+            navToggle.setAttribute('aria-expanded', String(isOpen));
+        });
+
+        mainNav.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('is-open');
+                navToggle.classList.remove('is-open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+    }
 
     // 1. EFFET D'ÉCRITURE SUR LE TITRE
     const heroTitle = document.querySelector('.hero h2');
-    const textContent = heroTitle.innerText;
-    heroTitle.innerText = ''; 
-    
-    let i = 0;
-    function typeEffect() {
-        if (i < textContent.length) {
-            heroTitle.innerHTML += textContent.charAt(i);
-            i++;
-            setTimeout(typeEffect, 50);
-        } else {
-            heroTitle.style.borderRight = "none"; // Optionnel : retire le curseur à la fin
+    if (heroTitle) {
+        const textContent = heroTitle.innerText;
+        heroTitle.innerText = ''; 
+        
+        let i = 0;
+        function typeEffect() {
+            if (i < textContent.length) {
+                heroTitle.innerHTML += textContent.charAt(i);
+                i++;
+                setTimeout(typeEffect, 50);
+            } else {
+                heroTitle.style.borderRight = "none"; // Optionnel : retire le curseur à la fin
+            }
         }
+        typeEffect();
     }
-    typeEffect();
 
     // 2. ANIMATION D'APPARITION AU SCROLL
     const observer = new IntersectionObserver((entries) => {
@@ -37,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 3. EFFET DE PARALLAXE SUR LE LOGO
     window.addEventListener('mousemove', (e) => {
         const logo = document.querySelector('.logo-text');
+        if (!logo) return;
         const moveX = (window.innerWidth / 2 - e.pageX) / 50;
         const moveY = (window.innerHeight / 2 - e.pageY) / 50;
         logo.style.transform = `translateX(${moveX}px) translateY(${moveY}px)`;
@@ -67,6 +88,7 @@ function showInfo(titre, texte) {
     const panel = document.getElementById('info-panel');
     const titleElem = document.getElementById('panel-title');
     const descElem = document.getElementById('panel-desc');
+    if (!panel || !titleElem || !descElem) return;
 
     titleElem.innerText = titre;
     descElem.innerText = texte;
@@ -78,5 +100,6 @@ function showInfo(titre, texte) {
 // Fonction pour fermer le panneau
 function closeInfo() {
     const panel = document.getElementById('info-panel');
+    if (!panel) return;
     panel.classList.add('hidden');
 }

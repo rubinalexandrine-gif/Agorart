@@ -106,6 +106,40 @@ header {
     -webkit-text-fill-color: transparent;
 }
 
+.nav-toggle {
+    display: none;
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(26, 42, 68, 0.15);
+    border-radius: 8px;
+    background: #fff;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.nav-toggle span {
+    width: 22px;
+    height: 2px;
+    background: #1a2a44;
+    display: block;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.nav-toggle.is-open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle.is-open span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.is-open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
 /* Menu de navigation */
 nav ul {
     display: flex;
@@ -210,6 +244,135 @@ nav ul li a:hover {
     border-bottom: 2px solid #e67e22;
 }
 
+.btn-arene {
+    display: inline-block;
+    background: #1a2a44;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-weight: 600;
+    border: 0;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.btn-arene:hover {
+    background: #bf953f;
+    transform: translateY(-2px);
+}
+
+.badge-gold {
+    display: inline-block;
+    background: rgba(191, 149, 63, 0.12);
+    color: #8a651e;
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 15px;
+}
+
+.article-page {
+    background: #fff;
+    max-width: 840px;
+    margin: 50px auto;
+    padding: 42px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+
+.article-page h1 {
+    color: #1a2a44;
+    font-size: 2rem;
+    line-height: 1.2;
+    margin: 12px 0;
+}
+
+.article-page h2 {
+    color: #2c3e50;
+    margin: 30px 0 10px;
+    font-size: 1.25rem;
+}
+
+.article-page p {
+    margin-bottom: 16px;
+    color: #555;
+}
+
+.article-meta {
+    color: #888 !important;
+    font-size: 0.9rem;
+}
+
+.article-cover {
+    height: 320px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    margin: 26px 0;
+}
+
+blockquote {
+    margin: 25px 0;
+    padding: 18px 22px;
+    border-left: 4px solid #bf953f;
+    background: #f9f6ef;
+    color: #1a2a44;
+    font-weight: 600;
+}
+
+.contact-hero {
+    text-align: center;
+    padding-top: 50px;
+}
+
+.contact-hero p {
+    max-width: 680px;
+    margin: -20px auto 0;
+    color: #666;
+}
+
+.contact-layout {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.8fr) minmax(300px, 1.2fr);
+    gap: 30px;
+    align-items: start;
+    margin: 20px 0 70px;
+}
+
+.contact-form-card {
+    padding: 30px;
+}
+
+.contact-form-card label {
+    display: block;
+    margin-bottom: 6px;
+    color: #1a2a44;
+    font-weight: 600;
+}
+
+.contact-form-card input,
+.contact-form-card select,
+.contact-form-card textarea {
+    width: 100%;
+    margin-bottom: 18px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font: inherit;
+    background: #fff;
+}
+
+.contact-form-card textarea {
+    resize: vertical;
+}
+
+.contact-form-card button {
+    width: 100%;
+}
+
 /* Section Équipe / Admin */
 .section-title {
     text-align: center;
@@ -254,12 +417,59 @@ footer {
 /* Responsive (Mobile) */
 @media (max-width: 768px) {
     .nav-container {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .nav-toggle {
+        display: flex;
+        margin-left: auto;
+    }
+
+    nav {
+        width: 100%;
+        display: none;
+    }
+
+    nav.is-open {
+        display: block;
+    }
+
+    nav ul {
         flex-direction: column;
-        gap: 20px;
+        gap: 0;
+        padding: 8px 0;
+        border-top: 1px solid rgba(26, 42, 68, 0.1);
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 12px 4px;
     }
     
     .hero h2 {
         font-size: 1.8rem;
+    }
+
+    .grid-talents {
+        grid-template-columns: 1fr;
+    }
+
+    .article-page {
+        padding: 24px;
+        margin: 25px auto;
+    }
+
+    .article-page h1 {
+        font-size: 1.55rem;
+    }
+
+    .article-cover {
+        height: 220px;
+    }
+
+    .contact-layout {
+        grid-template-columns: 1fr;
     }
 }
 
