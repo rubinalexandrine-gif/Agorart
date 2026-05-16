@@ -62,6 +62,32 @@ document.addEventListener('DOMContentLoaded', () => {
         const moveY = (window.innerHeight / 2 - e.pageY) / 50;
         logo.style.transform = `translateX(${moveX}px) translateY(${moveY}px)`;
     });
+
+    const allRecipients = document.querySelector('[data-recipient-all]');
+    const memberRecipients = document.querySelectorAll('[data-recipient-member]');
+
+    if (allRecipients && memberRecipients.length > 0) {
+        allRecipients.addEventListener('change', () => {
+            if (allRecipients.checked) {
+                memberRecipients.forEach((recipient) => {
+                    recipient.checked = false;
+                });
+            }
+        });
+
+        memberRecipients.forEach((recipient) => {
+            recipient.addEventListener('change', () => {
+                if (recipient.checked) {
+                    allRecipients.checked = false;
+                }
+
+                const hasSelectedMember = Array.from(memberRecipients).some((item) => item.checked);
+                if (!hasSelectedMember) {
+                    allRecipients.checked = true;
+                }
+            });
+        });
+    }
 });
 
 document.addEventListener('DOMContentLoaded', () => {

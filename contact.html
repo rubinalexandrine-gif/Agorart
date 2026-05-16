@@ -42,6 +42,12 @@
                     <h2>Informations utiles</h2>
                     <p>Utilisez cette page pour contacter l'équipe du projet, proposer une publication ou demander des précisions sur un concours.</p>
                     <p><strong>Réponse :</strong> dès que l'équipe consulte les messages.</p>
+
+                    <div class="contact-team-list">
+                        <span>Alexandrine Rubin · Fondatrice</span>
+                        <span>Alisha Dorgilles · Co-fondatrice</span>
+                        <span>René Tharalie · Manager</span>
+                    </div>
                 </div>
             </div>
 
@@ -55,22 +61,41 @@
 
                     <label for="subject">Sujet</label>
                     <select id="subject" name="subject" required>
-                        <option value="question">Question générale</option>
-                        <option value="concours">Concours</option>
-                        <option value="publication">Publication</option>
-                        <option value="technique">Problème technique</option>
+                        <option value="Question générale">Question générale</option>
+                        <option value="Concours">Concours</option>
+                        <option value="Publication">Publication</option>
+                        <option value="Problème technique">Problème technique</option>
                     </select>
 
-                    <label for="admin">Administratrice destinataire</label>
-                    <select id="admin" name="admin" required>
-                        <option value="alexandrine-rubin">Alexandrine Rubin - Fondatrice</option>
-                        <option value="alisha-dorgilles">Alisha Dorgilles - Co-fondatrice</option>
-                        <option value="rene-tharalie">René Tharalie - Manager</option>
-                    </select>
+                    <fieldset class="recipient-group">
+                        <legend>Destinataires</legend>
+                        <p>Sélectionnez les membres de l'équipe qui doivent recevoir ce message.</p>
+
+                        <label class="recipient-option">
+                            <input type="checkbox" name="destinataires[]" value="Toute l'équipe Agorart" data-recipient-all checked>
+                            <span>Toute l'équipe Agorart</span>
+                        </label>
+
+                        <label class="recipient-option">
+                            <input type="checkbox" name="destinataires[]" value="Alexandrine Rubin - Fondatrice" data-recipient-member>
+                            <span>Alexandrine Rubin · Fondatrice</span>
+                        </label>
+
+                        <label class="recipient-option">
+                            <input type="checkbox" name="destinataires[]" value="Alisha Dorgilles - Co-fondatrice" data-recipient-member>
+                            <span>Alisha Dorgilles · Co-fondatrice</span>
+                        </label>
+
+                        <label class="recipient-option">
+                            <input type="checkbox" name="destinataires[]" value="René Tharalie - Manager" data-recipient-member>
+                            <span>René Tharalie · Manager</span>
+                        </label>
+                    </fieldset>
 
                     <label for="message">Message</label>
                     <textarea id="message" name="message" rows="6" required></textarea>
 
+                    <input type="hidden" name="_subject" value="Nouveau message pour l'équipe Agorart">
                     <input type="hidden" name="_next" value="https://rubinalexandrine-gif.github.io/Agorart/merci.html">
                     <button type="submit" class="btn-arene">Envoyer le message</button>
                 </form>
