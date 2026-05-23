@@ -196,6 +196,18 @@ nav ul li a:hover {
     transform: translateY(-5px);
 }
 
+.talent-card {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.talent-card:focus-visible {
+    outline: 3px solid #bf953f;
+    outline-offset: 4px;
+}
+
 .card-image {
     height: 200px;
     background-size: cover;
@@ -994,4 +1006,78 @@ footer {
 
 .hidden {
     display: none !important;
+}
+
+
+/* Pages dediees aux talents */
+.talent-detail-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+    gap: 34px;
+    align-items: center;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    margin: 50px 0 30px;
+    overflow: hidden;
+}
+
+.talent-detail-copy {
+    padding: 34px;
+}
+
+.talent-detail-copy h1 {
+    color: #1a2a44;
+    font-size: 2.3rem;
+    line-height: 1.15;
+    margin: 14px 0;
+}
+
+.talent-detail-copy p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.talent-detail-image {
+    min-height: 360px;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.talent-detail-list {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    padding: 30px;
+    margin-bottom: 50px;
+}
+
+.talent-detail-list h2 {
+    color: #1a2a44;
+    margin-bottom: 18px;
+}
+
+.talent-detail-list ul {
+    padding-left: 20px;
+    color: #666;
+}
+
+.talent-detail-list li {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .talent-detail-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .talent-detail-image {
+        min-height: 240px;
+        order: -1;
+    }
+
+    .talent-detail-copy {
+        padding: 26px;
+    }
 }
