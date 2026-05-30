@@ -1,0 +1,575 @@
+/* Configuration générale */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+    
+    /* Reset indispensable pour tous les navigateurs */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* Évite le scroll horizontal parasite */
+}
+
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; /* Utilise 100% de la largeur de la vue */
+    height: 100vh; /* Utilise 100% de la hauteur de la vue */
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    
+    /* Animation */
+    animation: fadeOut 1s ease-in-out forwards;
+    animation-delay: 4s;
+}
+
+.splash-logo {
+    width: 100%;
+    height: 100%;
+    /* L'arme secrète pour le multi-écran */
+    object-fit: cover; 
+    /* 'cover' remplit tout l'écran. 
+       Si tu veux voir TOUTE l'image sans qu'elle soit coupée, 
+       utilise 'contain' à la place de 'cover' */
+    
+    object-position: center; /* Garde le logo bien au milieu */
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; visibility: visible; }
+    100% { opacity: 0; visibility: hidden; pointer-events: none; }
+} 
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    
+    
+    background: url('IMG_0258.png'); 
+    
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* L'image ne bouge pas quand on scrolle */
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header avec effet de transparence floutée */
+header {
+    background: rgba(255, 255, 255, 0.8); 
+    backdrop-filter: blur(10px); /* Effet verre poli */
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Conteneur pour aligner Logo à gauche et Menu à droite */
+.nav-container {
+    display: flex;
+    justify-content: space-between; /* Pousse les éléments aux extrémités */
+    align-items: center; /* Aligne verticalement au centre */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Style du Titre / Logo */
+.logo-text {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1a2a44; /* Ton Bleu Profond */
+    text-decoration: none;
+}
+
+.logo-text b {
+    /* Dégradé Or pour "art" */
+    background: linear-gradient(to right, #bf953f, #fcf6ba, #aa771c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-toggle {
+    display: none;
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(26, 42, 68, 0.15);
+    border-radius: 8px;
+    background: #fff;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.nav-toggle span {
+    width: 22px;
+    height: 2px;
+    background: #1a2a44;
+    display: block;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.nav-toggle.is-open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle.is-open span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.is-open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Menu de navigation */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px; /* Espace entre les liens */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #1a2a44;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #bf953f; /* Devient or au survol*/
+}
+
+/* Section Hero (Accueil) */
+.hero {
+    text-align: left;
+    padding: 80px 0 40px 0;
+    background-color: #fff;
+}
+
+.hero h2 {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+}
+
+/* Grille des Talents (Cartes) */
+.grid-talents {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 40px 0;
+}
+
+.card {
+    background: #fff;
+    border-radius: 20px; /* Coins très arrondis comme sur l'image */
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.category {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #e67e22;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.card-content {
+    padding: 25px;
+}
+
+.card-content h3 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.card-content p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.btn-read {
+    display: inline-block;
+    color: #e67e22;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-bottom: 2px solid transparent;
+    transition: border 0.3s;
+}
+
+.btn-read:hover {
+    border-bottom: 2px solid #e67e22;
+}
+
+.btn-arene {
+    display: inline-block;
+    background: #1a2a44;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-weight: 600;
+    border: 0;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.btn-arene:hover {
+    background: #bf953f;
+    transform: translateY(-2px);
+}
+
+.badge-gold {
+    display: inline-block;
+    background: rgba(191, 149, 63, 0.12);
+    color: #8a651e;
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 15px;
+}
+
+.article-page {
+    background: #fff;
+    max-width: 840px;
+    margin: 50px auto;
+    padding: 42px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+
+.article-page h1 {
+    color: #1a2a44;
+    font-size: 2rem;
+    line-height: 1.2;
+    margin: 12px 0;
+}
+
+.article-page h2 {
+    color: #2c3e50;
+    margin: 30px 0 10px;
+    font-size: 1.25rem;
+}
+
+.article-page p {
+    margin-bottom: 16px;
+    color: #555;
+}
+
+.article-meta {
+    color: #888 !important;
+    font-size: 0.9rem;
+}
+
+.article-cover {
+    height: 320px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    margin: 26px 0;
+}
+
+blockquote {
+    margin: 25px 0;
+    padding: 18px 22px;
+    border-left: 4px solid #bf953f;
+    background: #f9f6ef;
+    color: #1a2a44;
+    font-weight: 600;
+}
+
+.contact-hero {
+    text-align: center;
+    padding-top: 50px;
+}
+
+.contact-hero p {
+    max-width: 680px;
+    margin: -20px auto 0;
+    color: #666;
+}
+
+.contact-layout {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.8fr) minmax(300px, 1.2fr);
+    gap: 30px;
+    align-items: start;
+    margin: 20px 0 70px;
+}
+
+.contact-form-card {
+    padding: 30px;
+}
+
+.contact-form-card label {
+    display: block;
+    margin-bottom: 6px;
+    color: #1a2a44;
+    font-weight: 600;
+}
+
+.contact-form-card input,
+.contact-form-card select,
+.contact-form-card textarea {
+    width: 100%;
+    margin-bottom: 18px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font: inherit;
+    background: #fff;
+}
+
+.contact-form-card textarea {
+    resize: vertical;
+}
+
+.contact-form-card button {
+    width: 100%;
+}
+
+/* Section Équipe / Admin */
+.section-title {
+    text-align: center;
+    margin: 40px 0;
+    font-size: 1.8rem;
+}
+
+.grid-admin {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.admin-item img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Photos de profil rondes */
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #eee;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 40px 0;
+    background: #fff;
+    border-top: 1px solid #eee;
+    color: #999;
+    font-size: 0.9rem;
+}
+
+.separator {
+    border: 0;
+    height: 1px;
+    background: #eee;
+    margin: 40px 0;
+}
+
+/* Responsive (Mobile) */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .nav-toggle {
+        display: flex;
+        margin-left: auto;
+    }
+
+    nav {
+        width: 100%;
+        display: none;
+    }
+
+    nav.is-open {
+        display: block;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 0;
+        border-top: 1px solid rgba(26, 42, 68, 0.1);
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 12px 4px;
+    }
+    
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+
+    .grid-talents {
+        grid-template-columns: 1fr;
+    }
+
+    .article-page {
+        padding: 24px;
+        margin: 25px auto;
+    }
+
+    .article-page h1 {
+        font-size: 1.55rem;
+    }
+
+    .article-cover {
+        height: 220px;
+    }
+
+    .contact-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Styles de la Carte Réaliste Corrigés --- */
+
+.map-wrapper {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: #ffffff !important; /* On force le fond blanc */
+    border-radius: 15px;
+    margin: 20px 0;
+    overflow: hidden;
+    border: 1px solid rgba(191, 149, 63, 0.3);
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.05);
+    display: block !important;
+}
+
+/* On définit une règle commune pour TOUS les bâtiments */
+.building {
+    position: absolute !important;
+    background-color: #1a2a44 !important; /* Bleu foncé Agorart */
+    border: 2px solid #2c3e50;
+    z-index: 5 !important; /* Pour passer devant le fond */
+    display: block !important;
+}
+
+/* Positions précises des bâtiments (Marie-Anne) */
+
+/* --- Version Marie-Anne Haute Précision --- */
+
+.bat-nord { 
+    width: 62%; 
+    height: 10%; 
+    top: 12%; 
+    left: 18%; 
+    /* Forme trapézoïdale pour le toit */
+    clip-path: polygon(0 0, 100% 0, 92% 100%, 8% 100%);
+}
+
+.bat-ouest { 
+    width: 10%; 
+    height: 58%; 
+    top: 12%; /* Collé au bâtiment nord */
+    left: 18%; 
+}
+
+.bat-sud { 
+    width: 48%; 
+    height: 10%; 
+    top: 70%; 
+    left: 18%; /* Connecté à l'aile ouest */
+}
+
+/* L'aile qui fait le retour au milieu à droite */
+.bat-annexe { 
+    width: 25%; 
+    height: 12%; 
+    top: 42%; 
+    left: 48%; 
+    background-color: #2c3e50 !important; /* Légère nuance */
+}
+
+.cour-principale {
+    position: absolute;
+    width: 45%;
+    height: 50%;
+    top: 22%;
+    left: 28%;
+    border: 1px dashed rgba(191, 149, 63, 0.3);
+    background: rgba(191, 149, 63, 0.03);
+}
+
+
+/* Points interactifs */
+.hotspot {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: #bf953f !important;
+    border-radius: 50%;
+    z-index: 10 !important;
+    border: 2px solid #fff;
+    cursor: pointer;
+}
+
+.pulse {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(191, 149, 63, 0.5);
+    border-radius: 50%;
+    animation: gold-pulse 2s infinite;
+}
+
+@keyframes gold-pulse {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(3); opacity: 0; }
+}
+
+.hidden {
+    display: none !important;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agorart - Contact</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body style="margin: 0; padding: 0;">
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo-text">Agor<b>art</b></a>
+            <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="index.html#talents">Talents</a></li>
+                    <li><a href="arene.html">L'Arène</a></li>
+                    <li><a href="odyssee.html">L'Odyssée</a></li>
+                    <li><a href="contact.html" style="color: #bf953f;">Contact</a></li>
+                    <li><a href="index.html#equipe">Équipe</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="section contact-hero">
+            <div class="badge-gold">CONTACT</div>
+            <h1 class="section-title">Parler à l'équipe Agorart</h1>
+            <p>Une question, une proposition ou une difficulté avec une participation ? Envoyez-nous un message.</p>
+        </section>
+
+        <section class="contact-layout">
+            <div class="card contact-info">
+                <div class="card-content">
+                    <h2>Informations utiles</h2>
+                    <p>Utilisez cette page pour contacter l'équipe du projet, proposer une publication ou demander des précisions sur un concours.</p>
+                    <p><strong>Réponse :</strong> dès que l'équipe consulte les messages.</p>
+                </div>
+            </div>
+
+            <div class="card contact-form-card">
+                <form action="https://formspree.io/f/mvzwozwq" method="POST">
+                    <label for="name">Nom ou pseudonyme</label>
+                    <input id="name" type="text" name="name" required>
+
+                    <label for="email">Adresse e-mail</label>
+                    <input id="email" type="email" name="email" required>
+
+                    <label for="subject">Sujet</label>
+                    <select id="subject" name="subject" required>
+                        <option value="question">Question générale</option>
+                        <option value="concours">Concours</option>
+                        <option value="publication">Publication</option>
+                        <option value="technique">Problème technique</option>
+                    </select>
+
+                    <label for="admin">Administratrice destinataire</label>
+                    <select id="admin" name="admin" required>
+                        <option value="alexandrine-rubin">Alexandrine Rubin - Fondatrice</option>
+                        <option value="alisha-dorgilles">Alisha Dorgilles - Co-fondatrice</option>
+                        <option value="rene-tharalie">René Tharalie - Manager</option>
+                    </select>
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+
+                    <input type="hidden" name="_next" value="https://rubinalexandrine-gif.github.io/Agorart/merci.html">
+                    <button type="submit" class="btn-arene">Envoyer le message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Agorart</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
