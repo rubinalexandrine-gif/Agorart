@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
-<body style="margin: 0; padding: 0;">
+<body class="music-body" style="margin: 0; padding: 0;">
     <header>
         <div class="nav-container">
             <a href="index.html" class="logo-text">Agor<b>art</b></a>
@@ -29,24 +29,111 @@
         </div>
     </header>
 
-    <main class="container">
-        <section class="talent-detail-hero">
-            <div class="talent-detail-copy">
-                <span class="category" style="position: static; display: inline-block;">M&eacute;lodie</span>
+    <main class="music-page">
+        <section class="music-hero">
+            <img
+                class="music-hero-photo"
+                src="https://upload.wikimedia.org/wikipedia/commons/9/95/Cortis_Keonho_at_TikTok_Awards_Korea.jpg"
+                alt="Keonho de CORTIS dans une ambiance sc&egrave;ne lumineuse"
+            >
+
+            <div class="music-hero-copy">
+                <span class="music-kicker">Silence &middot; Pulsation &middot; Vertige</span>
                 <h1>Musique</h1>
-                <p>La musique rassemble les voix, les instruments, les compositions et les univers sonores personnels.</p>
-                <a href="index.html#talents" class="btn-read">Retour aux talents</a>
+                <p>
+                    La musique n'est pas seulement un bruit agr&eacute;able : c'est une pens&eacute;e qui respire.
+                    Elle transforme la peur en cadence, la solitude en refrain, et l'&eacute;motion brute en langage.
+                </p>
+                <div class="music-actions">
+                    <a href="arene.html#soumission" class="btn-arene">Partager une cr&eacute;ation</a>
+                    <a href="index.html#talents" class="btn-read">Retour aux talents</a>
+                </div>
+                <div class="music-theme-switcher" role="group" aria-label="Choisir un thème">
+                    <button type="button" class="music-theme-btn is-active" data-music-theme="theme-night" aria-pressed="true">Nuit</button>
+                    <button type="button" class="music-theme-btn" data-music-theme="theme-luminous" aria-pressed="false">Lumineux</button>
+                    <button type="button" class="music-theme-btn" data-music-theme="theme-rose" aria-pressed="false">Rose</button>
+                </div>
             </div>
-            <div class="talent-detail-image" style="background-image: url('IMG_0314.jpeg');" role="img" aria-label="Illustration Musique"></div>
+
+            <p class="music-credit">
+                Photo : TenAsia,
+                <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>,
+                via Wikimedia Commons.
+            </p>
         </section>
 
-        <section class="talent-detail-list">
-            <h2>Ce que cette page peut accueillir</h2>
-            <ul>
-                <li>Compositions, reprises et cr&eacute;ations originales</li>
-                <li>Instruments, production, ?criture et arrangement</li>
-                <li>Audios, vid?os, sc&egrave;nes ouvertes et collaborations</li>
-            </ul>
+        <section class="music-encouragement">
+            <p>
+                Commencer, c'est accepter d'&ecirc;tre entendu avant d'&ecirc;tre parfait. Une voix qui tremble peut &ecirc;tre
+                plus vraie qu'une voix qui cherche seulement &agrave; impressionner.
+            </p>
+        </section>
+
+        <section class="music-section">
+            <div class="music-section-heading">
+                <span class="badge-gold">COMPRENDRE</span>
+                <h2>Composer, c'est organiser l'invisible</h2>
+            </div>
+
+            <div class="music-learning-grid">
+                <article class="music-tip-card">
+                    <span>01</span>
+                    <h3>L'intention</h3>
+                    <p>Un morceau puissant commence par une question : qu'est-ce que je veux faire ressentir ? Sans intention, le son bouge; avec elle, il parle.</p>
+                </article>
+                <article class="music-tip-card">
+                    <span>02</span>
+                    <h3>La tension</h3>
+                    <p>La beaut&eacute; vient souvent d'un contraste : une note fragile sur un rythme fort, un silence apr&egrave;s l'explosion, une douceur dans le chaos.</p>
+                </article>
+                <article class="music-tip-card">
+                    <span>03</span>
+                    <h3>La structure</h3>
+                    <p>Couplet, refrain, pont, rupture : la forme guide l'&eacute;motion. Une bonne structure ne limite pas l'artiste, elle lui donne de l'impact.</p>
+                </article>
+                <article class="music-tip-card">
+                    <span>04</span>
+                    <h3>La pr&eacute;sence</h3>
+                    <p>La technique compte, mais la pr&eacute;sence marque les esprits. Quand tu interpr&egrave;tes, ne remplis pas seulement l'espace : habite-le.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="music-showcase">
+            <div class="music-showcase-image music-showcase-main" role="img" aria-label="Artiste chantant dans une ambiance sc&egrave;ne lumineuse"></div>
+            <div class="music-showcase-copy">
+                <span class="badge-gold">CR&Eacute;ER</span>
+                <h2>Ce que la page Musique peut devenir</h2>
+                <ul>
+                    <li>Un laboratoire de voix : chant, rap, slam, narration, harmonies et choeurs.</li>
+                    <li>Un atelier de sons : piano, guitare, percussion, beatmaking, samples et arrangements.</li>
+                    <li>Un carnet d'id&eacute;es : textes, refrains, concepts d'albums, pochettes et univers sc&eacute;niques.</li>
+                    <li>Une sc&egrave;ne collective o&ugrave; les timides apprennent &agrave; prendre de la place sans se trahir.</li>
+                </ul>
+            </div>
+            <div class="music-showcase-image music-showcase-secondary" role="img" aria-label="Musicien sous des projecteurs dans une ambiance sombre"></div>
+        </section>
+
+        <section class="music-quote">
+            <p>"Une grande chanson ne cherche pas seulement &agrave; &ecirc;tre jolie. Elle ose dire ce que beaucoup ressentent sans savoir le formuler."</p>
+        </section>
+
+        <section class="music-practice">
+            <h2>Rituel d'artiste : trois gestes pour entrer dans le son</h2>
+            <div class="music-practice-steps">
+                <div>
+                    <strong>&Eacute;couter</strong>
+                    <span>Choisis une chanson et analyse-la : o&ugrave; commence la tension, o&ugrave; arrive la lib&eacute;ration ?</span>
+                </div>
+                <div>
+                    <strong>R&eacute;duire</strong>
+                    <span>Garde seulement l'essentiel : une phrase, trois accords, une pulsation. La clart&eacute; donne de la force.</span>
+                </div>
+                <div>
+                    <strong>Assumer</strong>
+                    <span>Enregistre une version imparfaite. L'art avance quand l'id&eacute;e quitte enfin ta t&ecirc;te.</span>
+                </div>
+            </div>
         </section>
     </main>
 
