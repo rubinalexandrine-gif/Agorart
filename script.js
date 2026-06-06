@@ -1,5 +1,77 @@
 
 document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.querySelector('.theme-picker-toggle');
+    const themePanel = document.getElementById('theme-panel');
+    const themeOptions = document.querySelectorAll('[data-theme-choice]');
+    const accentOptions = document.querySelectorAll('[data-accent-choice]');
+    const storedTheme = localStorage.getItem('agorart-theme') || 'auto';
+    const storedAccent = localStorage.getItem('agorart-accent') || 'gold';
+
+    function getResolvedTheme(themeChoice) {
+        if (themeChoice === 'auto') {
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+
+        return themeChoice;
+    }
+
+    function applyTheme(themeChoice) {
+        document.documentElement.dataset.theme = getResolvedTheme(themeChoice);
+        localStorage.setItem('agorart-theme', themeChoice);
+        themeOptions.forEach((option) => {
+            option.classList.toggle('is-active', option.dataset.themeChoice === themeChoice);
+        });
+    }
+
+    function applyAccent(accentChoice) {
+        document.documentElement.dataset.accent = accentChoice;
+        localStorage.setItem('agorart-accent', accentChoice);
+        accentOptions.forEach((option) => {
+            option.classList.toggle('is-active', option.dataset.accentChoice === accentChoice);
+        });
+    }
+
+    applyTheme(storedTheme);
+    applyAccent(storedAccent);
+
+    if (themeToggle && themePanel) {
+        themeToggle.addEventListener('click', () => {
+            const isOpen = themePanel.classList.toggle('is-open');
+            themeToggle.classList.toggle('is-open', isOpen);
+            themeToggle.setAttribute('aria-expanded', String(isOpen));
+            themePanel.setAttribute('aria-hidden', String(!isOpen));
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!themePanel.classList.contains('is-open')) return;
+            if (themePanel.contains(event.target) || themeToggle.contains(event.target)) return;
+
+            themePanel.classList.remove('is-open');
+            themeToggle.classList.remove('is-open');
+            themeToggle.setAttribute('aria-expanded', 'false');
+            themePanel.setAttribute('aria-hidden', 'true');
+        });
+    }
+
+    themeOptions.forEach((option) => {
+        option.addEventListener('click', () => {
+            applyTheme(option.dataset.themeChoice);
+        });
+    });
+
+    accentOptions.forEach((option) => {
+        option.addEventListener('click', () => {
+            applyAccent(option.dataset.accentChoice);
+        });
+    });
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+        const currentTheme = localStorage.getItem('agorart-theme') || 'auto';
+        if (currentTheme === 'auto') {
+            applyTheme('auto');
+        }
+    });
+
     const navToggle = document.querySelector('.nav-toggle');
     const mainNav = document.getElementById('main-nav');
 
@@ -87,6 +159,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
+    }
+
+    const danceStage = document.querySelector('.dance-stage');
+    const danceMarkers = document.querySelectorAll('[data-dance-style]');
+
+    if (danceStage && danceMarkers.length > 0) {
+        function setDanceStyle(style) {
+            danceStage.dataset.activeDance = style;
+
+            danceMarkers.forEach((marker) => {
+                const isActive = marker.dataset.danceStyle === style;
+                marker.classList.toggle('is-active', isActive);
+                marker.setAttribute('aria-pressed', String(isActive));
+            });
+        }
+
+        danceMarkers.forEach((marker) => {
+            marker.addEventListener('click', () => {
+                setDanceStyle(marker.dataset.danceStyle);
+            });
+        });
+
+        setDanceStyle('hiphop');
     }
 });
 

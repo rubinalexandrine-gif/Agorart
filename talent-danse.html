@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
-<body style="margin: 0; padding: 0;">
+<body class="dance-body" style="margin: 0; padding: 0;">
     <header>
         <div class="nav-container">
             <a href="index.html" class="logo-text">Agor<b>art</b></a>
@@ -29,24 +29,95 @@
         </div>
     </header>
 
-    <main class="container">
-        <section class="talent-detail-hero">
-            <div class="talent-detail-copy">
-                <span class="category" style="position: static; display: inline-block;">Sc&egrave;ne</span>
+    <main class="dance-page">
+        <section class="dance-hero">
+            <div class="dance-hero-copy">
+                <span class="dance-kicker">Sc&egrave;ne en mouvement</span>
                 <h1>Danse</h1>
-                <p>La danse donne une voix au corps, entre rythme, ?motion, discipline et pr&eacute;sence sc&eacute;nique.</p>
+                <p>Une carte festive pour explorer les styles, les inspirations et l'&eacute;nergie des danseurs qui font vibrer la sc&egrave;ne.</p>
                 <a href="index.html#talents" class="btn-read">Retour aux talents</a>
             </div>
-            <div class="talent-detail-image" style="background-image: url('IMG_0311.jpeg');" role="img" aria-label="Illustration Danse"></div>
+            <div class="dance-stage" aria-label="Carte interactive danse festive" role="region">
+                <span class="dance-light dance-light-one"></span>
+                <span class="dance-light dance-light-two"></span>
+                <span class="dance-light dance-light-three"></span>
+                <span class="dance-ring"></span>
+                <span class="dance-spark spark-one"></span>
+                <span class="dance-spark spark-two"></span>
+                <span class="dance-spark spark-three"></span>
+                <span class="dance-spark spark-four"></span>
+                <button class="dance-marker marker-hiphop is-active" type="button" data-dance-style="hiphop" aria-pressed="true" aria-label="Hip-hop et battle">Hip-hop<span>Battle, freestyle, attitude.</span></button>
+                <button class="dance-marker marker-afro" type="button" data-dance-style="afro" aria-pressed="false" aria-label="Afro et groove">Afro<span>Groove, rebonds, chaleur.</span></button>
+                <button class="dance-marker marker-contempo" type="button" data-dance-style="contempo" aria-pressed="false" aria-label="Contemporain et &eacute;motion">Contempo<span>&Eacute;motion, lignes, respiration.</span></button>
+                <button class="dance-marker marker-latin" type="button" data-dance-style="latin" aria-pressed="false" aria-label="Latino et c&eacute;l&eacute;bration">Latino<span>Rythme, duo, fiesta.</span></button>
+                <div class="dance-silhouette" aria-hidden="true">
+                    <span class="dance-head"></span>
+                    <span class="dance-body-shape"></span>
+                    <span class="dance-arm dance-arm-left"></span>
+                    <span class="dance-arm dance-arm-right"></span>
+                    <span class="dance-leg dance-leg-left"></span>
+                    <span class="dance-leg dance-leg-right"></span>
+                </div>
+            </div>
         </section>
 
-        <section class="talent-detail-list">
-            <h2>Ce que cette page peut accueillir</h2>
-            <ul>
-                <li>Chor?graphies solo ou en groupe</li>
-                <li>Styles urbains, traditionnels, contemporains ou libres</li>
-                <li>Vid?os, r&eacute;p&eacute;titions, d&eacute;fis et performances</li>
-            </ul>
+        <section class="dance-icons-section">
+            <div class="dance-section-heading">
+                <span class="dance-kicker">Inspirations connues</span>
+                <h2>Des danseurs qui donnent envie de bouger</h2>
+            </div>
+            <div class="dance-icons-grid" aria-label="Danseurs connus">
+                <article class="dance-icon-card">
+                    <span>01</span>
+                    <h3>Les Twins</h3>
+                    <p>Une r&eacute;f&eacute;rence mondiale du hip-hop, entre freestyle, musicalit&eacute; et attitude de sc&egrave;ne.</p>
+                </article>
+                <article class="dance-icon-card">
+                    <span>02</span>
+                    <h3>Misty Copeland</h3>
+                    <p>Une figure majeure du ballet, symbole de discipline, d'&eacute;l&eacute;gance et de puissance.</p>
+                </article>
+                <article class="dance-icon-card">
+                    <span>03</span>
+                    <h3>Parris Goebel</h3>
+                    <p>Chor&eacute;graphe explosive, connue pour ses groupes, ses clips et son &eacute;nergie tr&egrave;s visuelle.</p>
+                </article>
+                <article class="dance-icon-card">
+                    <span>04</span>
+                    <h3>Michael Jackson</h3>
+                    <p>Un style reconnaissable instantan&eacute;ment, avec pr&eacute;cision, isolation et sens du spectacle.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="dance-party-strip">
+            <div>
+                <strong>Battle</strong>
+                <span>Improviser, r&eacute;pondre, surprendre.</span>
+            </div>
+            <div>
+                <strong>Chor&eacute;</strong>
+                <span>Construire une performance en groupe.</span>
+            </div>
+            <div>
+                <strong>Show</strong>
+                <span>Entrer sur sc&egrave;ne avec confiance.</span>
+            </div>
+        </section>
+
+        <section class="dance-style-grid">
+            <article class="dance-style-card">
+                <h3>Urbain</h3>
+                <p>Pop, lock, krump, break ou freestyle pour travailler le rythme et la personnalit&eacute;.</p>
+            </article>
+            <article class="dance-style-card">
+                <h3>Traditionnel</h3>
+                <p>Faire vivre des pas, des histoires et des cultures avec fiert&eacute;.</p>
+            </article>
+            <article class="dance-style-card">
+                <h3>Sc&egrave;ne</h3>
+                <p>Pr&eacute;parer une entr&eacute;e, des formations, des transitions et un final qui marque.</p>
+            </article>
         </section>
     </main>
 

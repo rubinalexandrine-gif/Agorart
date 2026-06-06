@@ -1,4 +1,62 @@
 /* Configuration générale */
+:root {
+    --page-text: #333;
+    --page-bg: url('IMG_0258.png');
+    --surface: #fff;
+    --surface-soft: #f7f8fb;
+    --header-bg: rgba(255, 255, 255, 0.82);
+    --border-soft: rgba(0, 0, 0, 0.08);
+    --heading: #1a2a44;
+    --heading-soft: #2c3e50;
+    --muted: #666;
+    --muted-soft: #7f8c8d;
+    --accent: #bf953f;
+    --accent-strong: #e67e22;
+    --accent-soft: rgba(191, 149, 63, 0.14);
+    --card-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+html[data-theme="dark"] {
+    --page-text: #e6e8ee;
+    --page-bg:
+        linear-gradient(rgba(9, 13, 24, 0.88), rgba(9, 13, 24, 0.88)),
+        url('IMG_0258.png');
+    --surface: #111827;
+    --surface-soft: #172033;
+    --header-bg: rgba(12, 18, 32, 0.88);
+    --border-soft: rgba(255, 255, 255, 0.12);
+    --heading: #f8fafc;
+    --heading-soft: #e6e8ee;
+    --muted: #c3cad8;
+    --muted-soft: #aab3c5;
+    --accent-soft: rgba(191, 149, 63, 0.2);
+    --card-shadow: 0 18px 34px rgba(0,0,0,0.28);
+}
+
+html[data-accent="coral"] {
+    --accent: #d95d39;
+    --accent-strong: #d95d39;
+    --accent-soft: rgba(217, 93, 57, 0.16);
+}
+
+html[data-accent="blue"] {
+    --accent: #2563eb;
+    --accent-strong: #2563eb;
+    --accent-soft: rgba(37, 99, 235, 0.14);
+}
+
+html[data-accent="green"] {
+    --accent: #168a5a;
+    --accent-strong: #168a5a;
+    --accent-soft: rgba(22, 138, 90, 0.14);
+}
+
+html[data-accent="violet"] {
+    --accent: #7c3aed;
+    --accent-strong: #7c3aed;
+    --accent-soft: rgba(124, 58, 237, 0.14);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -51,13 +109,13 @@ html, body {
 
 body {
     font-family: 'Poppins', sans-serif;
-    color: #333;
+    color: var(--page-text);
     line-height: 1.6;
     margin: 0;
     padding: 0;
     
     
-    background: url('IMG_0258.png'); 
+    background: var(--page-bg);
     
     background-size: cover;
     background-position: center;
@@ -72,13 +130,13 @@ body {
 
 /* Header avec effet de transparence floutée */
 header {
-    background: rgba(255, 255, 255, 0.8); 
+    background: var(--header-bg);
     backdrop-filter: blur(10px); /* Effet verre poli */
     padding: 15px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid var(--border-soft);
 }
 
 /* Conteneur pour aligner Logo à gauche et Menu à droite */
@@ -95,24 +153,123 @@ header {
 .logo-text {
     font-size: 1.8rem;
     font-weight: 700;
-    color: #1a2a44; /* Ton Bleu Profond */
+    color: var(--heading); /* Ton Bleu Profond */
     text-decoration: none;
 }
 
 .logo-text b {
     /* Dégradé Or pour "art" */
-    background: linear-gradient(to right, #bf953f, #fcf6ba, #aa771c);
+    background: linear-gradient(to right, var(--accent), #fcf6ba, var(--accent-strong));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.theme-picker {
+    position: relative;
+    margin-left: auto;
+    margin-right: 16px;
+}
+
+.theme-picker-toggle {
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--border-soft);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--heading);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.theme-picker-toggle:hover,
+.theme-picker-toggle.is-open {
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-1px);
+}
+
+.theme-picker-toggle svg {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.theme-panel {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 236px;
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid var(--border-soft);
+    background: var(--surface);
+    box-shadow: var(--card-shadow);
+    display: none;
+    z-index: 1002;
+}
+
+.theme-panel.is-open {
+    display: block;
+}
+
+.theme-panel-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.theme-mode-option {
+    border: 1px solid var(--border-soft);
+    border-radius: 8px;
+    background: var(--surface-soft);
+    color: var(--heading);
+    padding: 8px 6px;
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.theme-mode-option.is-active {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+}
+
+.theme-colors {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.theme-color-option {
+    width: 30px;
+    height: 30px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    background: var(--swatch);
+    cursor: pointer;
+}
+
+.theme-color-option.is-active {
+    border-color: var(--heading);
+    box-shadow: 0 0 0 3px var(--accent-soft);
 }
 
 .nav-toggle {
     display: none;
     width: 44px;
     height: 44px;
-    border: 1px solid rgba(26, 42, 68, 0.15);
+    border: 1px solid var(--border-soft);
     border-radius: 8px;
-    background: #fff;
+    background: var(--surface);
     cursor: pointer;
     align-items: center;
     justify-content: center;
@@ -123,7 +280,7 @@ header {
 .nav-toggle span {
     width: 22px;
     height: 2px;
-    background: #1a2a44;
+    background: var(--heading);
     display: block;
     transition: transform 0.25s ease, opacity 0.25s ease;
 }
@@ -149,31 +306,31 @@ nav ul {
 
 nav ul li a {
     text-decoration: none;
-    color: #1a2a44;
+    color: var(--heading);
     font-weight: 500;
     transition: 0.3s;
 }
 
 nav ul li a:hover {
-    color: #bf953f; /* Devient or au survol*/
+    color: var(--accent); /* Devient or au survol*/
 }
 
 /* Section Hero (Accueil) */
 .hero {
     text-align: left;
     padding: 80px 0 40px 0;
-    background-color: #fff;
+    background-color: var(--surface);
 }
 
 .hero h2 {
     font-size: 2.2rem;
-    color: #2c3e50;
+    color: var(--heading-soft);
     margin-bottom: 10px;
 }
 
 .hero p {
     font-size: 1.1rem;
-    color: #7f8c8d;
+    color: var(--muted-soft);
 }
 
 /* Grille des Talents (Cartes) */
@@ -185,10 +342,10 @@ nav ul li a:hover {
 }
 
 .card {
-    background: #fff;
+    background: var(--surface);
     border-radius: 20px; /* Coins très arrondis comme sur l'image */
     overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    box-shadow: var(--card-shadow);
     transition: transform 0.3s ease;
 }
 
@@ -204,7 +361,7 @@ nav ul li a:hover {
 }
 
 .talent-card:focus-visible {
-    outline: 3px solid #bf953f;
+    outline: 3px solid var(--accent);
     outline-offset: 4px;
 }
 
@@ -219,7 +376,7 @@ nav ul li a:hover {
     position: absolute;
     top: 15px;
     left: 15px;
-    background: #e67e22;
+    background: var(--accent-strong);
     color: #fff;
     padding: 5px 15px;
     border-radius: 50px;
@@ -233,18 +390,18 @@ nav ul li a:hover {
 
 .card-content h3 {
     margin-bottom: 10px;
-    color: #2c3e50;
+    color: var(--heading-soft);
 }
 
 .card-content p {
     font-size: 0.95rem;
-    color: #666;
+    color: var(--muted);
     margin-bottom: 20px;
 }
 
 .btn-read {
     display: inline-block;
-    color: #e67e22;
+    color: var(--accent-strong);
     text-decoration: none;
     font-weight: 600;
     font-size: 0.9rem;
@@ -253,7 +410,7 @@ nav ul li a:hover {
 }
 
 .btn-read:hover {
-    border-bottom: 2px solid #e67e22;
+    border-bottom: 2px solid var(--accent-strong);
 }
 
 .btn-arene {
@@ -779,16 +936,16 @@ blockquote {
 footer {
     text-align: center;
     padding: 40px 0;
-    background: #fff;
-    border-top: 1px solid #eee;
-    color: #999;
+    background: var(--surface);
+    border-top: 1px solid var(--border-soft);
+    color: var(--muted-soft);
     font-size: 0.9rem;
 }
 
 .separator {
     border: 0;
     height: 1px;
-    background: #eee;
+    background: var(--border-soft);
     margin: 40px 0;
 }
 
@@ -801,7 +958,12 @@ footer {
 
     .nav-toggle {
         display: flex;
+        margin-left: 0;
+    }
+
+    .theme-picker {
         margin-left: auto;
+        margin-right: 0;
     }
 
     nav {
@@ -817,7 +979,7 @@ footer {
         flex-direction: column;
         gap: 0;
         padding: 8px 0;
-        border-top: 1px solid rgba(26, 42, 68, 0.1);
+        border-top: 1px solid var(--border-soft);
     }
 
     nav ul li a {
@@ -1104,6 +1266,802 @@ footer {
 
     .talent-detail-copy {
         padding: 26px;
+    }
+}
+
+/* Page Danse */
+.dance-body {
+    background:
+        radial-gradient(circle at 16% 12%, rgba(255, 78, 146, 0.32), transparent 24%),
+        radial-gradient(circle at 82% 18%, rgba(0, 203, 255, 0.24), transparent 28%),
+        radial-gradient(circle at 52% 88%, rgba(255, 213, 79, 0.3), transparent 30%),
+        linear-gradient(135deg, #13091f, #241044 42%, #07101f) !important;
+    color: #fff;
+}
+
+.dance-page {
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 48px 0 76px;
+}
+
+.dance-hero {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.9fr) minmax(360px, 1.1fr);
+    gap: 34px;
+    align-items: stretch;
+}
+
+.dance-hero-copy {
+    min-height: 520px;
+    padding: 44px;
+    border-radius: 8px;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.055)),
+        linear-gradient(135deg, rgba(255, 78, 146, 0.18), rgba(0, 203, 255, 0.1));
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.34);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.dance-kicker {
+    width: fit-content;
+    padding: 8px 13px;
+    border-radius: 999px;
+    background: rgba(255, 213, 79, 0.16);
+    border: 1px solid rgba(255, 213, 79, 0.52);
+    color: #ffe38f;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.dance-hero h1 {
+    margin: 18px 0;
+    color: #fff;
+    font-size: clamp(4rem, 10vw, 8rem);
+    line-height: 0.88;
+    letter-spacing: 0;
+    text-shadow: 0 18px 48px rgba(0, 0, 0, 0.42);
+}
+
+.dance-hero p {
+    max-width: 560px;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 1.08rem;
+}
+
+.dance-hero .btn-read {
+    width: fit-content;
+    margin-top: 22px;
+    color: #ffe38f;
+}
+
+.dance-stage {
+    min-height: 520px;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.1), transparent 34%),
+        radial-gradient(circle at 50% 72%, rgba(255, 213, 79, 0.42), transparent 24%),
+        linear-gradient(145deg, #17082c, #33146b 58%, #07101f);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: inset 0 -80px 110px rgba(0, 0, 0, 0.38), 0 30px 80px rgba(0, 0, 0, 0.34);
+}
+
+.dance-stage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 54px 54px;
+    transform: perspective(480px) rotateX(58deg) translateY(120px);
+    transform-origin: center bottom;
+    opacity: 0.45;
+}
+
+.dance-stage::after {
+    content: "";
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    bottom: 42px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.34);
+    filter: blur(12px);
+}
+
+.dance-light {
+    position: absolute;
+    top: -28%;
+    width: 34%;
+    height: 92%;
+    clip-path: polygon(38% 0, 62% 0, 100% 100%, 0 100%);
+    opacity: 0.42;
+    mix-blend-mode: screen;
+    animation: dance-light-sweep 4.8s ease-in-out infinite;
+}
+
+.dance-light-one {
+    left: 4%;
+    background: linear-gradient(180deg, rgba(255, 78, 146, 0.88), transparent);
+    transform-origin: top center;
+}
+
+.dance-light-two {
+    left: 34%;
+    background: linear-gradient(180deg, rgba(0, 203, 255, 0.78), transparent);
+    animation-delay: -1.5s;
+    transform-origin: top center;
+}
+
+.dance-light-three {
+    right: 3%;
+    background: linear-gradient(180deg, rgba(255, 213, 79, 0.82), transparent);
+    animation-delay: -2.8s;
+    transform-origin: top center;
+}
+
+.dance-ring {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    left: calc(50% - 130px);
+    top: 115px;
+    border: 2px solid rgba(255, 255, 255, 0.28);
+    border-radius: 50%;
+    box-shadow: 0 0 45px rgba(0, 203, 255, 0.3), inset 0 0 55px rgba(255, 78, 146, 0.24);
+    animation: dance-spin 12s linear infinite;
+}
+
+.dance-ring::before,
+.dance-ring::after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #ffe38f;
+    box-shadow: 0 0 22px rgba(255, 227, 143, 0.9);
+}
+
+.dance-ring::before {
+    top: 18px;
+    left: 52px;
+}
+
+.dance-ring::after {
+    right: 34px;
+    bottom: 42px;
+    background: #00cbff;
+    box-shadow: 0 0 22px rgba(0, 203, 255, 0.9);
+}
+
+.dance-spark {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 20px currentColor;
+    animation: dance-sparkle 2.8s ease-in-out infinite;
+}
+
+.spark-one {
+    left: 16%;
+    top: 24%;
+    color: #ff4e92;
+}
+
+.spark-two {
+    right: 18%;
+    top: 18%;
+    color: #00cbff;
+    animation-delay: -0.7s;
+}
+
+.spark-three {
+    left: 26%;
+    bottom: 24%;
+    color: #ffe38f;
+    animation-delay: -1.3s;
+}
+
+.spark-four {
+    right: 28%;
+    bottom: 34%;
+    color: #fff;
+    animation-delay: -2s;
+}
+
+.dance-marker {
+    position: absolute;
+    z-index: 5;
+    min-width: 88px;
+    padding: 9px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.34);
+    border-radius: 999px;
+    background: rgba(7, 16, 31, 0.72);
+    color: #fff;
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 12px 34px rgba(0, 0, 0, 0.28);
+    animation: dance-float 3.2s ease-in-out infinite;
+}
+
+.dance-marker:hover,
+.dance-marker:focus-visible,
+.dance-marker.is-active {
+    background: #ffe38f;
+    color: #1a1030;
+    outline: 0;
+    transform: translateY(-4px) scale(1.04);
+}
+
+.dance-marker span {
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 10px);
+    width: max-content;
+    max-width: 190px;
+    padding: 9px 11px;
+    border-radius: 8px;
+    background: rgba(255, 247, 223, 0.96);
+    color: #241044;
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1.35;
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.32);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(8px);
+    transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.dance-marker:hover span,
+.dance-marker:focus-visible span {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.marker-hiphop {
+    left: 10%;
+    top: 18%;
+}
+
+.marker-afro {
+    right: 10%;
+    top: 30%;
+    animation-delay: -0.8s;
+}
+
+.marker-contempo {
+    left: 11%;
+    bottom: 24%;
+    animation-delay: -1.6s;
+}
+
+.marker-latin {
+    right: 12%;
+    bottom: 18%;
+    animation-delay: -2.2s;
+}
+
+.dance-silhouette {
+    position: absolute;
+    z-index: 4;
+    left: calc(50% - 72px);
+    bottom: 78px;
+    width: 144px;
+    height: 252px;
+    animation: dance-groove 1.6s ease-in-out infinite;
+    transform-origin: center bottom;
+}
+
+.dance-head,
+.dance-body-shape,
+.dance-arm,
+.dance-leg {
+    position: absolute;
+    display: block;
+    background: #fff7df;
+    box-shadow: 0 0 28px rgba(255, 227, 143, 0.32);
+}
+
+.dance-head {
+    width: 48px;
+    height: 48px;
+    left: 52px;
+    top: 0;
+    border-radius: 50%;
+}
+
+.dance-body-shape {
+    width: 58px;
+    height: 92px;
+    left: 49px;
+    top: 56px;
+    border-radius: 28px 28px 16px 16px;
+    transform: rotate(-8deg);
+}
+
+.dance-arm,
+.dance-leg {
+    width: 22px;
+    border-radius: 999px;
+    transform-origin: top center;
+}
+
+.dance-arm {
+    height: 104px;
+    top: 62px;
+}
+
+.dance-arm-left {
+    left: 42px;
+    transform: rotate(52deg);
+    animation: dance-left-arm 1.6s ease-in-out infinite;
+}
+
+.dance-arm-right {
+    right: 30px;
+    transform: rotate(-58deg);
+    animation: dance-right-arm 1.6s ease-in-out infinite;
+}
+
+.dance-leg {
+    height: 112px;
+    top: 140px;
+}
+
+.dance-leg-left {
+    left: 54px;
+    transform: rotate(18deg);
+    animation: dance-left-leg 1.6s ease-in-out infinite;
+}
+
+.dance-leg-right {
+    right: 44px;
+    transform: rotate(-26deg);
+    animation: dance-right-leg 1.6s ease-in-out infinite;
+}
+
+.dance-stage[data-active-dance="hiphop"] .dance-silhouette {
+    animation: dance-hiphop-body 0.72s steps(2, end) infinite;
+}
+
+.dance-stage[data-active-dance="hiphop"] .dance-body-shape {
+    animation: dance-hiphop-torso 0.72s steps(2, end) infinite;
+}
+
+.dance-stage[data-active-dance="hiphop"] .dance-arm-left {
+    animation: dance-hiphop-left-arm 0.72s steps(2, end) infinite;
+}
+
+.dance-stage[data-active-dance="hiphop"] .dance-arm-right {
+    animation: dance-hiphop-right-arm 0.72s steps(2, end) infinite;
+}
+
+.dance-stage[data-active-dance="hiphop"] .dance-leg-left {
+    animation: dance-hiphop-left-leg 0.72s steps(2, end) infinite;
+}
+
+.dance-stage[data-active-dance="hiphop"] .dance-leg-right {
+    animation: dance-hiphop-right-leg 0.72s steps(2, end) infinite;
+}
+
+.dance-stage[data-active-dance="afro"] .dance-silhouette {
+    animation: dance-afro-body 0.92s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+.dance-stage[data-active-dance="afro"] .dance-body-shape {
+    animation: dance-afro-torso 0.92s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+.dance-stage[data-active-dance="afro"] .dance-arm-left {
+    animation: dance-afro-left-arm 0.92s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+.dance-stage[data-active-dance="afro"] .dance-arm-right {
+    animation: dance-afro-right-arm 0.92s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+.dance-stage[data-active-dance="afro"] .dance-leg-left {
+    animation: dance-afro-left-leg 0.92s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+.dance-stage[data-active-dance="afro"] .dance-leg-right {
+    animation: dance-afro-right-leg 0.92s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+.dance-stage[data-active-dance="contempo"] .dance-silhouette {
+    animation: dance-contempo-body 2.4s ease-in-out infinite;
+}
+
+.dance-stage[data-active-dance="contempo"] .dance-body-shape {
+    animation: dance-contempo-torso 2.4s ease-in-out infinite;
+}
+
+.dance-stage[data-active-dance="contempo"] .dance-arm-left {
+    animation: dance-contempo-left-arm 2.4s ease-in-out infinite;
+}
+
+.dance-stage[data-active-dance="contempo"] .dance-arm-right {
+    animation: dance-contempo-right-arm 2.4s ease-in-out infinite;
+}
+
+.dance-stage[data-active-dance="contempo"] .dance-leg-left {
+    animation: dance-contempo-left-leg 2.4s ease-in-out infinite;
+}
+
+.dance-stage[data-active-dance="contempo"] .dance-leg-right {
+    animation: dance-contempo-right-leg 2.4s ease-in-out infinite;
+}
+
+.dance-stage[data-active-dance="latin"] .dance-silhouette {
+    animation: dance-latin-body 1.05s ease-in-out infinite;
+}
+
+.dance-stage[data-active-dance="latin"] .dance-body-shape {
+    animation: dance-latin-torso 1.05s ease-in-out infinite;
+}
+
+.dance-stage[data-active-dance="latin"] .dance-arm-left {
+    animation: dance-latin-left-arm 1.05s ease-in-out infinite;
+}
+
+.dance-stage[data-active-dance="latin"] .dance-arm-right {
+    animation: dance-latin-right-arm 1.05s ease-in-out infinite;
+}
+
+.dance-stage[data-active-dance="latin"] .dance-leg-left {
+    animation: dance-latin-left-leg 1.05s ease-in-out infinite;
+}
+
+.dance-stage[data-active-dance="latin"] .dance-leg-right {
+    animation: dance-latin-right-leg 1.05s ease-in-out infinite;
+}
+
+.dance-icons-section,
+.dance-style-grid,
+.dance-party-strip {
+    margin-top: 34px;
+}
+
+.dance-section-heading {
+    margin-bottom: 22px;
+    text-align: center;
+}
+
+.dance-section-heading h2 {
+    margin-top: 14px;
+    color: #fff;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    line-height: 1.05;
+}
+
+.dance-icons-grid,
+.dance-style-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.dance-icon-card,
+.dance-style-card {
+    min-height: 236px;
+    padding: 24px;
+    border-radius: 8px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.055));
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 18px 52px rgba(0, 0, 0, 0.24);
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.dance-icon-card:hover,
+.dance-style-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 227, 143, 0.62);
+    background: linear-gradient(180deg, rgba(255, 227, 143, 0.2), rgba(255, 255, 255, 0.07));
+}
+
+.dance-icon-card span {
+    display: block;
+    color: #ffe38f;
+    font-size: 1.55rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.dance-icon-card h3,
+.dance-style-card h3 {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.dance-icon-card p,
+.dance-style-card p,
+.dance-party-strip span {
+    color: rgba(255, 255, 255, 0.76);
+}
+
+.dance-party-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff7df;
+    box-shadow: 0 22px 58px rgba(0, 0, 0, 0.24);
+}
+
+.dance-party-strip div {
+    padding: 26px;
+    border-right: 1px solid rgba(26, 42, 68, 0.12);
+}
+
+.dance-party-strip div:last-child {
+    border-right: 0;
+}
+
+.dance-party-strip strong {
+    display: block;
+    color: #241044;
+    font-size: 1.65rem;
+    line-height: 1.1;
+}
+
+.dance-party-strip span {
+    display: block;
+    color: #4b5563;
+    margin-top: 8px;
+}
+
+.dance-style-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@keyframes dance-light-sweep {
+    0%, 100% { transform: rotate(-10deg); }
+    50% { transform: rotate(12deg); }
+}
+
+@keyframes dance-spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes dance-sparkle {
+    0%, 100% { transform: scale(0.8); opacity: 0.32; }
+    50% { transform: scale(1.5); opacity: 1; }
+}
+
+@keyframes dance-float {
+    0%, 100% { translate: 0 0; }
+    50% { translate: 0 -10px; }
+}
+
+@keyframes dance-groove {
+    0%, 100% { transform: rotate(-4deg) translateY(0); }
+    50% { transform: rotate(5deg) translateY(-8px); }
+}
+
+@keyframes dance-left-arm {
+    0%, 100% { transform: rotate(52deg); }
+    50% { transform: rotate(88deg); }
+}
+
+@keyframes dance-right-arm {
+    0%, 100% { transform: rotate(-58deg); }
+    50% { transform: rotate(-92deg); }
+}
+
+@keyframes dance-left-leg {
+    0%, 100% { transform: rotate(18deg); }
+    50% { transform: rotate(34deg); }
+}
+
+@keyframes dance-right-leg {
+    0%, 100% { transform: rotate(-26deg); }
+    50% { transform: rotate(-10deg); }
+}
+
+@keyframes dance-hiphop-body {
+    0%, 100% { transform: translateX(-8px) translateY(0) rotate(-8deg) scaleY(0.96); }
+    50% { transform: translateX(10px) translateY(-5px) rotate(7deg) scaleY(1.02); }
+}
+
+@keyframes dance-hiphop-torso {
+    0%, 100% { transform: rotate(-18deg) skewX(-5deg); }
+    50% { transform: rotate(13deg) skewX(6deg); }
+}
+
+@keyframes dance-hiphop-left-arm {
+    0%, 100% { transform: rotate(96deg); }
+    50% { transform: rotate(28deg); }
+}
+
+@keyframes dance-hiphop-right-arm {
+    0%, 100% { transform: rotate(-34deg); }
+    50% { transform: rotate(-108deg); }
+}
+
+@keyframes dance-hiphop-left-leg {
+    0%, 100% { transform: rotate(42deg); }
+    50% { transform: rotate(4deg); }
+}
+
+@keyframes dance-hiphop-right-leg {
+    0%, 100% { transform: rotate(-7deg); }
+    50% { transform: rotate(-44deg); }
+}
+
+@keyframes dance-afro-body {
+    0%, 100% { transform: translateY(0) rotate(-3deg) scaleY(0.98); }
+    25% { transform: translateY(10px) rotate(4deg) scaleY(0.92); }
+    50% { transform: translateY(-5px) rotate(0) scaleY(1.03); }
+    75% { transform: translateY(9px) rotate(-5deg) scaleY(0.93); }
+}
+
+@keyframes dance-afro-torso {
+    0%, 100% { transform: rotate(-10deg) translateY(0); }
+    50% { transform: rotate(10deg) translateY(8px); }
+}
+
+@keyframes dance-afro-left-arm {
+    0%, 100% { transform: rotate(62deg); }
+    50% { transform: rotate(118deg); }
+}
+
+@keyframes dance-afro-right-arm {
+    0%, 100% { transform: rotate(-74deg); }
+    50% { transform: rotate(-28deg); }
+}
+
+@keyframes dance-afro-left-leg {
+    0%, 100% { transform: rotate(34deg); }
+    50% { transform: rotate(12deg); }
+}
+
+@keyframes dance-afro-right-leg {
+    0%, 100% { transform: rotate(-32deg); }
+    50% { transform: rotate(-12deg); }
+}
+
+@keyframes dance-contempo-body {
+    0%, 100% { transform: translateX(-18px) translateY(0) rotate(-14deg); }
+    35% { transform: translateX(6px) translateY(-18px) rotate(8deg); }
+    70% { transform: translateX(18px) translateY(8px) rotate(18deg); }
+}
+
+@keyframes dance-contempo-torso {
+    0%, 100% { transform: rotate(-22deg) scaleY(1.04); }
+    45% { transform: rotate(7deg) scaleY(1.12); }
+    75% { transform: rotate(26deg) scaleY(0.98); }
+}
+
+@keyframes dance-contempo-left-arm {
+    0%, 100% { transform: rotate(132deg); }
+    45% { transform: rotate(20deg); }
+    75% { transform: rotate(154deg); }
+}
+
+@keyframes dance-contempo-right-arm {
+    0%, 100% { transform: rotate(-118deg); }
+    45% { transform: rotate(-24deg); }
+    75% { transform: rotate(-148deg); }
+}
+
+@keyframes dance-contempo-left-leg {
+    0%, 100% { transform: rotate(6deg); }
+    45% { transform: rotate(48deg); }
+    75% { transform: rotate(20deg); }
+}
+
+@keyframes dance-contempo-right-leg {
+    0%, 100% { transform: rotate(-42deg); }
+    45% { transform: rotate(-8deg); }
+    75% { transform: rotate(-58deg); }
+}
+
+@keyframes dance-latin-body {
+    0%, 100% { transform: translateX(-10px) rotate(-7deg); }
+    25% { transform: translateX(7px) rotate(8deg); }
+    50% { transform: translateX(12px) rotate(4deg); }
+    75% { transform: translateX(-5px) rotate(-10deg); }
+}
+
+@keyframes dance-latin-torso {
+    0%, 100% { transform: rotate(-6deg); }
+    50% { transform: rotate(12deg); }
+}
+
+@keyframes dance-latin-left-arm {
+    0%, 100% { transform: rotate(26deg); }
+    50% { transform: rotate(86deg); }
+}
+
+@keyframes dance-latin-right-arm {
+    0%, 100% { transform: rotate(-118deg); }
+    50% { transform: rotate(-46deg); }
+}
+
+@keyframes dance-latin-left-leg {
+    0%, 100% { transform: rotate(10deg); }
+    50% { transform: rotate(35deg); }
+}
+
+@keyframes dance-latin-right-leg {
+    0%, 100% { transform: rotate(-34deg); }
+    50% { transform: rotate(-4deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dance-light,
+    .dance-ring,
+    .dance-spark,
+    .dance-marker,
+    .dance-silhouette,
+    .dance-arm-left,
+    .dance-arm-right,
+    .dance-leg-left,
+    .dance-leg-right {
+        animation: none;
+    }
+}
+
+@media (max-width: 900px) {
+    .dance-hero,
+    .dance-icons-grid,
+    .dance-style-grid,
+    .dance-party-strip {
+        grid-template-columns: 1fr;
+    }
+
+    .dance-hero-copy,
+    .dance-stage {
+        min-height: 460px;
+    }
+
+    .dance-icons-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 620px) {
+    .dance-page {
+        width: min(100% - 24px, 1180px);
+        padding: 28px 0 48px;
+    }
+
+    .dance-hero-copy {
+        min-height: 0;
+        padding: 26px;
+    }
+
+    .dance-stage {
+        min-height: 430px;
+    }
+
+    .dance-icons-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dance-marker {
+        min-width: 78px;
+        font-size: 0.76rem;
+    }
+
+    .dance-silhouette {
+        transform: scale(0.88);
+        transform-origin: center bottom;
     }
 }
 

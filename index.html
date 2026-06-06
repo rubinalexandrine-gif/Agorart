@@ -17,6 +17,31 @@
     <header>
         <div class="nav-container">
             <a href="index.html" class="logo-text">Agor<b>art</b></a>
+            <div class="theme-picker">
+                <button class="theme-picker-toggle" type="button" aria-label="Choisir l'apparence" aria-expanded="false" aria-controls="theme-panel">
+                    <svg aria-hidden="true" viewBox="0 0 24 24">
+                        <path d="M12 22a10 10 0 0 1 0-20 8 8 0 0 1 8 8c0 1.66-1.34 3-3 3h-1.5a1.5 1.5 0 0 0 0 3H17a2 2 0 0 1 2 2c0 2.21-3.58 4-7 4Z"></path>
+                        <circle cx="7.5" cy="10.5" r="1"></circle>
+                        <circle cx="10" cy="6.5" r="1"></circle>
+                        <circle cx="14.5" cy="7.5" r="1"></circle>
+                        <circle cx="6.5" cy="14.5" r="1"></circle>
+                    </svg>
+                </button>
+                <div class="theme-panel" id="theme-panel" aria-hidden="true">
+                    <div class="theme-panel-group" aria-label="Mode d'affichage">
+                        <button type="button" class="theme-mode-option" data-theme-choice="light">Clair</button>
+                        <button type="button" class="theme-mode-option" data-theme-choice="dark">Sombre</button>
+                        <button type="button" class="theme-mode-option" data-theme-choice="auto">Auto</button>
+                    </div>
+                    <div class="theme-colors" aria-label="Couleur principale">
+                        <button type="button" class="theme-color-option" data-accent-choice="gold" style="--swatch: #bf953f;" aria-label="Couleur or"></button>
+                        <button type="button" class="theme-color-option" data-accent-choice="coral" style="--swatch: #d95d39;" aria-label="Couleur corail"></button>
+                        <button type="button" class="theme-color-option" data-accent-choice="blue" style="--swatch: #2563eb;" aria-label="Couleur bleue"></button>
+                        <button type="button" class="theme-color-option" data-accent-choice="green" style="--swatch: #168a5a;" aria-label="Couleur verte"></button>
+                        <button type="button" class="theme-color-option" data-accent-choice="violet" style="--swatch: #7c3aed;" aria-label="Couleur violette"></button>
+                    </div>
+                </div>
+            </div>
             <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
                 <span></span>
                 <span></span>
