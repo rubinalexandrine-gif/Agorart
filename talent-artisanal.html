@@ -34,19 +34,75 @@
             <div class="talent-detail-copy">
                 <span class="category" style="position: static; display: inline-block;">Cr&eacute;ation</span>
                 <h1>Artisanal</h1>
-                <p>L?artisanal valorise les objets faits main, les mati&egrave;res et les gestes patients qui cr?ent du durable.</p>
+                <p>L&rsquo;artisanal valorise les objets faits main, les mati&egrave;res et les gestes patients qui cr&eacute;ent du durable.</p>
                 <a href="index.html#talents" class="btn-read">Retour aux talents</a>
             </div>
             <div class="talent-detail-image" style="background-image: url('IMG_0317.jpeg');" role="img" aria-label="Illustration Artisanal"></div>
         </section>
 
-        <section class="talent-detail-list">
-            <h2>Ce que cette page peut accueillir</h2>
-            <ul>
-                <li>Objets d&eacute;coratifs, accessoires et cr&eacute;ations manuelles</li>
-                <li>Mati?res, outils, &eacute;tapes et savoir-faire</li>
-                <li>Ateliers, galeries et id&eacute;es de projets</li>
-            </ul>
+        <section class="talent-interactive-board" data-talent-board>
+            <div class="talent-card-stack" aria-label="Explorer l'artisanal">
+                <button class="talent-pick-card" type="button" data-talent-card="material" aria-pressed="true">
+                    <span>01 Mati&egrave;re</span>
+                    <strong>Choisir ce qu'on transforme</strong>
+                    <p>Papier, tissu, bois, perles, fil, carton ou objets recycl&eacute;s.</p>
+                </button>
+                <button class="talent-pick-card" type="button" data-talent-card="gesture" aria-pressed="false">
+                    <span>02 Geste</span>
+                    <strong>Apprendre par la main</strong>
+                    <p>Couper, coller, tresser, assembler, coudre, peindre et recommencer.</p>
+                </button>
+                <button class="talent-pick-card" type="button" data-talent-card="object" aria-pressed="false">
+                    <span>03 Objet</span>
+                    <strong>Finir une cr&eacute;ation utile</strong>
+                    <p>Accessoires, d&eacute;corations, cadeaux, maquettes et pi&egrave;ces uniques.</p>
+                </button>
+            </div>
+
+            <div class="talent-panel-stage">
+                <article class="talent-panel" data-talent-panel="material">
+                    <div class="talent-panel-visual" style="--panel-image: url('IMG_0317.jpeg');"></div>
+                    <div class="talent-panel-copy">
+                        <h2>La mati&egrave;re impose ses r&egrave;gles</h2>
+                        <p>Un bon projet artisanal commence par comprendre ce que la mati&egrave;re accepte, refuse ou sugg&egrave;re.</p>
+                        <ul>
+                            <li>Recyclage et objets transform&eacute;s</li>
+                            <li>Textures, couleurs et solidit&eacute;</li>
+                            <li>Choix des outils adapt&eacute;s</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="talent-panel" data-talent-panel="gesture">
+                    <div class="talent-panel-visual" style="--panel-image: url('IMG_0315.jpeg');"></div>
+                    <div class="talent-panel-copy">
+                        <h2>Le geste rend l'objet personnel</h2>
+                        <p>Les imperfections peuvent devenir une signature quand le travail reste propre, patient et assum&eacute;.</p>
+                        <ul>
+                            <li>Tressage, collage, couture, modelage</li>
+                            <li>&Eacute;tapes photographi&eacute;es</li>
+                            <li>Ateliers collectifs</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="talent-panel" data-talent-panel="object">
+                    <div class="talent-panel-visual" style="--panel-image: url('IMG_0258.png');"></div>
+                    <div class="talent-panel-copy">
+                        <h2>Un objet fini doit avoir une intention</h2>
+                        <p>D&eacute;corer, offrir, porter ou exposer : l'usage donne une direction &agrave; la cr&eacute;ation.</p>
+                        <ul>
+                            <li>Accessoires et d&eacute;corations</li>
+                            <li>Galeries de r&eacute;alisations</li>
+                            <li>Fiches projet et difficult&eacute;</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="talent-mini-grid">
+            <article class="talent-mini-card"><strong>R&eacute;cup&eacute;rer</strong><span>Transformer une mati&egrave;re simple en point de d&eacute;part.</span></article>
+            <article class="talent-mini-card"><strong>Assembler</strong><span>Faire tenir l'id&eacute;e dans un objet concret.</span></article>
+            <article class="talent-mini-card"><strong>Exposer</strong><span>Montrer les &eacute;tapes autant que le r&eacute;sultat.</span></article>
         </section>
     </main>
 

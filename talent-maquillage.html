@@ -40,13 +40,69 @@
             <div class="talent-detail-image" style="background-image: url('IMG_0310.jpeg');" role="img" aria-label="Illustration Maquillage"></div>
         </section>
 
-        <section class="talent-detail-list">
-            <h2>Ce que cette page peut accueillir</h2>
-            <ul>
-                <li>Looks naturels, artistiques ou &eacute;v&eacute;nementiels</li>
-                <li>Techniques, produits, textures et inspirations</li>
-                <li>Avant-apr?s, portraits et cr&eacute;ations th&eacute;matiques</li>
-            </ul>
+        <section class="talent-interactive-board" data-talent-board>
+            <div class="talent-card-stack" aria-label="Explorer le maquillage">
+                <button class="talent-pick-card" type="button" data-talent-card="light" aria-pressed="true">
+                    <span>01 Lumi&egrave;re</span>
+                    <strong>Sculpter le visage</strong>
+                    <p>Teint, ombres, reflets et &eacute;quilibre pour r&eacute;v&eacute;ler les traits.</p>
+                </button>
+                <button class="talent-pick-card" type="button" data-talent-card="color" aria-pressed="false">
+                    <span>02 Couleur</span>
+                    <strong>Oser une intention</strong>
+                    <p>Un regard, une bouche ou une texture peuvent porter tout un univers.</p>
+                </button>
+                <button class="talent-pick-card" type="button" data-talent-card="concept" aria-pressed="false">
+                    <span>03 Concept</span>
+                    <strong>Transformer sans masquer</strong>
+                    <p>Looks naturels, artistiques, sc&egrave;ne, shooting ou th&egrave;mes complets.</p>
+                </button>
+            </div>
+
+            <div class="talent-panel-stage">
+                <article class="talent-panel" data-talent-panel="light">
+                    <div class="talent-panel-visual" style="--panel-image: url('IMG_0310.jpeg');"></div>
+                    <div class="talent-panel-copy">
+                        <h2>La lumi&egrave;re dirige le regard</h2>
+                        <p>Un maquillage r&eacute;ussi commence par l'observation : peau, formes, points forts et ambiance voulue.</p>
+                        <ul>
+                            <li>Teint naturel ou travaill&eacute;</li>
+                            <li>Contour, blush et illuminateur</li>
+                            <li>Finitions photo et sc&egrave;ne</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="talent-panel" data-talent-panel="color">
+                    <div class="talent-panel-visual" style="--panel-image: url('IMG_0315.jpeg');"></div>
+                    <div class="talent-panel-copy">
+                        <h2>La couleur raconte l'audace</h2>
+                        <p>Un trait graphique ou une palette forte peut changer l'attitude d'un portrait entier.</p>
+                        <ul>
+                            <li>Yeux graphiques, d&eacute;grad&eacute;s et pigments</li>
+                            <li>Textures mates, brillantes ou m&eacute;talliques</li>
+                            <li>Harmonies avec tenue et coiffure</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="talent-panel" data-talent-panel="concept">
+                    <div class="talent-panel-visual" style="--panel-image: url('IMG_0309.jpeg');"></div>
+                    <div class="talent-panel-copy">
+                        <h2>Un concept donne de la coh&eacute;rence</h2>
+                        <p>Le maquillage peut devenir personnage, &eacute;poque, humeur ou symbole quand il est pens&eacute; comme une sc&egrave;ne.</p>
+                        <ul>
+                            <li>Avant-apr&egrave;s et portraits</li>
+                            <li>Looks th&eacute;matiques</li>
+                            <li>Fiches produits et gestes</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="talent-mini-grid">
+            <article class="talent-mini-card"><strong>Observer</strong><span>Adapter le maquillage au visage et &agrave; l'intention.</span></article>
+            <article class="talent-mini-card"><strong>Doser</strong><span>Construire l'effet par couches plut&ocirc;t que tout forcer.</span></article>
+            <article class="talent-mini-card"><strong>Harmoniser</strong><span>Relier couleurs, coiffure, tenue et lumi&egrave;re.</span></article>
         </section>
     </main>
 

@@ -34,19 +34,75 @@
             <div class="talent-detail-copy">
                 <span class="category" style="position: static; display: inline-block;">Vocal</span>
                 <h1>Chant</h1>
-                <p>Le chant met l&rsquo;&eacute;motion au premier plan, port&eacute; par la voix, l?interpr&eacute;tation et la confiance.</p>
+                <p>Le chant met l&rsquo;&eacute;motion au premier plan, port&eacute; par la voix, l&rsquo;interpr&eacute;tation et la confiance.</p>
                 <a href="index.html#talents" class="btn-read">Retour aux talents</a>
             </div>
             <div class="talent-detail-image" style="background-image: url('IMG_0320.jpeg');" role="img" aria-label="Illustration Chant"></div>
         </section>
 
-        <section class="talent-detail-list">
-            <h2>Ce que cette page peut accueillir</h2>
-            <ul>
-                <li>Reprises, compositions et performances vocales</li>
-                <li>Techniques, interpr&eacute;tation et pr&eacute;sence</li>
-                <li>Auditions, vid&eacute;os et sc&egrave;nes ouvertes</li>
-            </ul>
+        <section class="talent-interactive-board" data-talent-board>
+            <div class="talent-card-stack" aria-label="Explorer le chant">
+                <button class="talent-pick-card" type="button" data-talent-card="voice" aria-pressed="true">
+                    <span>01 Voix</span>
+                    <strong>Comprendre son timbre</strong>
+                    <p>Respiration, placement, justesse et couleur personnelle.</p>
+                </button>
+                <button class="talent-pick-card" type="button" data-talent-card="interpret" aria-pressed="false">
+                    <span>02 Interpr&eacute;ter</span>
+                    <strong>Faire passer l'&eacute;motion</strong>
+                    <p>Nuances, intention, regard et pr&eacute;sence devant le public.</p>
+                </button>
+                <button class="talent-pick-card" type="button" data-talent-card="stage" aria-pressed="false">
+                    <span>03 Sc&egrave;ne</span>
+                    <strong>Partager une performance</strong>
+                    <p>Reprises, compositions, auditions et vid&eacute;os vocales.</p>
+                </button>
+            </div>
+
+            <div class="talent-panel-stage">
+                <article class="talent-panel" data-talent-panel="voice">
+                    <div class="talent-panel-visual" style="--panel-image: url('IMG_0320.jpeg');"></div>
+                    <div class="talent-panel-copy">
+                        <h2>La voix est un instrument vivant</h2>
+                        <p>Elle demande de l'&eacute;coute, de la patience et des gestes simples pour gagner en assurance.</p>
+                        <ul>
+                            <li>Respiration et &eacute;chauffement</li>
+                            <li>Justesse, rythme et articulation</li>
+                            <li>Choix d'une tonalit&eacute; confortable</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="talent-panel" data-talent-panel="interpret">
+                    <div class="talent-panel-visual" style="--panel-image: url('IMG_0314.jpeg');"></div>
+                    <div class="talent-panel-copy">
+                        <h2>Interpr&eacute;ter, ce n'est pas seulement chanter juste</h2>
+                        <p>Une chanson marque quand l'artiste comprend ce qu'il raconte et ose le transmettre.</p>
+                        <ul>
+                            <li>Travail des paroles</li>
+                            <li>Nuances et silences</li>
+                            <li>Pr&eacute;sence et confiance</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="talent-panel" data-talent-panel="stage">
+                    <div class="talent-panel-visual" style="--panel-image: url('IMG_0258.png');"></div>
+                    <div class="talent-panel-copy">
+                        <h2>La sc&egrave;ne transforme l'exercice en moment</h2>
+                        <p>La page peut accueillir des auditions, des reprises film&eacute;es ou des compositions originales.</p>
+                        <ul>
+                            <li>Vid&eacute;os et enregistrements</li>
+                            <li>Duos, choeurs et solos</li>
+                            <li>Pr&eacute;paration de concours</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="talent-mini-grid">
+            <article class="talent-mini-card"><strong>Respirer</strong><span>Stabiliser le souffle avant de chercher la puissance.</span></article>
+            <article class="talent-mini-card"><strong>&Eacute;couter</strong><span>Rep&eacute;rer ce qui sonne vrai dans sa propre voix.</span></article>
+            <article class="talent-mini-card"><strong>Assumer</strong><span>Chanter avec intention, m&ecirc;me dans la fragilit&eacute;.</span></article>
         </section>
     </main>
 

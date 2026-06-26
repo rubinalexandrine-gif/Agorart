@@ -34,19 +34,91 @@
             <div class="talent-detail-copy">
                 <span class="category" style="position: static; display: inline-block;">Plume</span>
                 <h1>Litt&eacute;rature</h1>
-                <p>La litt?rature ouvre un espace pour les textes, les r&eacute;cits, les po&egrave;mes et les voix qui cherchent &agrave; &ecirc;tre lues.</p>
+                <p>La litt&eacute;rature ouvre un espace pour les textes, les r&eacute;cits, les po&egrave;mes et les voix qui cherchent &agrave; &ecirc;tre lues.</p>
                 <a href="index.html#talents" class="btn-read">Retour aux talents</a>
             </div>
             <div class="talent-detail-image" style="background-image: url('IMG_0313.jpeg');" role="img" aria-label="Illustration Litt&eacute;rature"></div>
         </section>
 
-        <section class="talent-detail-list">
-            <h2>Ce que cette page peut accueillir</h2>
-            <ul>
-                <li>Po?mes, nouvelles, extraits et chroniques</li>
-                <li>Portraits d?auteurs et conseils d&rsquo;&eacute;criture</li>
-                <li>Lectures, appels &agrave; textes et publications</li>
-            </ul>
+        <section class="talent-interactive-board" data-talent-board>
+            <div class="talent-card-stack" aria-label="Explorer la litt&eacute;rature">
+                <button class="talent-pick-card" type="button" data-talent-card="poetry" aria-pressed="true">
+                    <span>01 Voix</span>
+                    <strong>Po&egrave;mes et fragments</strong>
+                    <p>Textes courts, images fortes et phrases qui gardent une trace.</p>
+                </button>
+                <button class="talent-pick-card" type="button" data-talent-card="story" aria-pressed="false">
+                    <span>02 R&eacute;cit</span>
+                    <strong>Nouvelles et chroniques</strong>
+                    <p>Personnages, souvenirs, dialogues et sc&egrave;nes &agrave; faire lire.</p>
+                </button>
+                <button class="talent-pick-card" type="button" data-talent-card="publish" aria-pressed="false">
+                    <span>03 Publier</span>
+                    <strong>Donner une place au texte</strong>
+                    <p>Mettre en page, signer, corriger et pr&eacute;senter une oeuvre.</p>
+                </button>
+            </div>
+
+            <div class="talent-panel-stage">
+                <article class="talent-panel" data-talent-panel="poetry">
+                    <div class="talent-panel-visual" style="--panel-image: url('assets/articles/souvenirs-carnet.jpg');"></div>
+                    <div class="talent-panel-copy">
+                        <h2>La phrase peut devenir sc&egrave;ne</h2>
+                        <p>Un po&egrave;me ou un fragment ne cherche pas toujours &agrave; expliquer. Il peut faire sentir.</p>
+                        <ul>
+                            <li>Po&egrave;mes libres, slams et textes intimes</li>
+                            <li>Images, rythmes et silences</li>
+                            <li>Lecture &agrave; voix haute</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="talent-panel" data-talent-panel="story">
+                    <div class="talent-panel-visual" style="--panel-image: url('IMG_0313.jpeg');"></div>
+                    <div class="talent-panel-copy">
+                        <h2>Le r&eacute;cit organise l'&eacute;motion</h2>
+                        <p>Une nouvelle ou une chronique donne un d&eacute;but, une tension et une trace &agrave; ce qui traverse l'esprit.</p>
+                        <ul>
+                            <li>Souvenirs, portraits et fictions courtes</li>
+                            <li>Personnages et points de vue</li>
+                            <li>Ateliers de correction</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="talent-panel" data-talent-panel="publish">
+                    <div class="talent-panel-visual" style="--panel-image: url('assets/articles/souvenirs-couloir.jpg');"></div>
+                    <div class="talent-panel-copy">
+                        <h2>Publier, c'est respecter le texte</h2>
+                        <p>La page Litt&eacute;rature peut accueillir des textes sign&eacute;s, relus et pr&eacute;sent&eacute;s comme de vraies publications.</p>
+                        <ul>
+                            <li>Articles, recueils et appels &agrave; textes</li>
+                            <li>Biographies d'auteurs</li>
+                            <li>Archives de publications Agorart</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="talent-mini-grid">
+            <article class="talent-mini-card"><strong>&Eacute;crire</strong><span>Poser la premi&egrave;re version sans chercher la perfection.</span></article>
+            <article class="talent-mini-card"><strong>Relire</strong><span>Couper, pr&eacute;ciser, choisir les mots qui restent.</span></article>
+            <article class="talent-mini-card"><strong>Partager</strong><span>Faire exister le texte devant un lecteur.</span></article>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Publication litt&eacute;raire</h2>
+            <div class="grid-talents">
+                <article class="card">
+                    <div class="card-image" style="background-image: url('assets/articles/souvenirs-carnet.jpg');">
+                        <span class="category">Litt&eacute;rature</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Le poids des souvenirs</h3>
+                        <p>Un texte de Lana Hesperos sur la m&eacute;moire, la douleur et les traces que les souvenirs laissent en nous.</p>
+                        <a href="article-souvenirs.html" class="btn-read">Lire le texte</a>
+                    </div>
+                </article>
+            </div>
         </section>
     </main>
 

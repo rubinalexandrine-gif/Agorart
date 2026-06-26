@@ -8,8 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
-<body style="margin: 0; padding: 0;"> 
-    
+<body style="margin: 0; padding: 0;">
     <header>
         <div class="nav-container">
             <a href="index.html" class="logo-text">Agor<b>art</b></a>
@@ -32,47 +31,123 @@
     </header>
 
     <main class="container">
-        <section class="section" style="text-align: center; padding-top: 50px;">
+        <section class="section odyssee-hero" style="text-align: center; padding-top: 50px;">
             <div class="badge-gold">EXPLORATION</div>
             <h1 class="section-title">L'Odyssée de l'École</h1>
-            <p>Parcourez l'histoire, les couloirs et les secrets de notre établissement.</p>
+            <p>Une lecture claire du bâtiment du Collège Marie-Anne, pensée comme base interactive à affiner avec les repères du terrain.</p>
         </section>
 
         <section id="exploration" class="section">
-            <div class="grid-talents">
-                
-                <div class="card">
-                    <div class="card-content">
-                        <span class="tag-map">Plan du Collège</span>
-                        
-                        <div class="map-wrapper">
-                            <div class="building bat-nord" onclick="showInfo('Bâtiment Nord', 'Salles de classe supérieures.')"></div>
-                            <div class="building bat-ouest" onclick="showInfo('Aile Ouest', 'Administration et laboratoires.')"></div>
-                            <div class="building bat-sud" onclick="showInfo('Bâtiment Sud', 'Espace de vie et réfectoire.')"></div>
-                            <div class="building bat-annexe" onclick="showInfo('Annexe', 'Salles spécialisées.')"></div>
-                            
-                            <div class="cour-principale"></div>
+            <div class="odyssee-grid">
+                <div class="card odyssee-card">
+                    <div class="card-content odyssee-content">
+                        <div class="odyssee-header">
+                            <span class="tag-map">Plan interactif</span>
+                            <h2>Collège Marie-Anne</h2>
+                            <p>Choisis une zone pour afficher son rôle dans le bâtiment. Le plan est volontairement lisible et peut servir de base pour un tracé plus précis.</p>
+                        </div>
 
-                            <div class="hotspot" style="top: 15%; left: 45%;" onclick="showInfo('Entrée Principale', 'Accès Rue du Christ-Roi.')">
-                                <span class="pulse"></span>
+                        <div class="campus-toolbar" aria-label="Contrôles du plan interactif">
+                            <div class="campus-filter-group" role="group" aria-label="Filtrer les zones">
+                                <button class="campus-filter is-active" type="button" data-campus-filter="all" aria-pressed="true">Tout</button>
+                                <button class="campus-filter" type="button" data-campus-filter="learning" aria-pressed="false">Apprendre</button>
+                                <button class="campus-filter" type="button" data-campus-filter="life" aria-pressed="false">Vie scolaire</button>
+                                <button class="campus-filter" type="button" data-campus-filter="access" aria-pressed="false">Accès</button>
                             </div>
-                            <div class="hotspot" style="top: 60%; left: 40%;" onclick="showInfo('La Grande Cour', 'Cœur battant du collège.')">
-                                <span class="pulse"></span>
+
+                            <div class="campus-action-group">
+                                <button class="campus-action" type="button" data-campus-tour>Parcours</button>
+                                <button class="campus-action" type="button" data-campus-zoom>Zoom</button>
                             </div>
                         </div>
 
-                        <div id="info-panel" class="info-panel hidden">
-                            <h3 id="panel-title">Lieu</h3>
-                            <p id="panel-desc">Description...</p>
-                            <button onclick="closeInfo()">✕ Fermer</button>
-                        </div>
+                        <div class="odyssee-layout">
+                            <div class="campus-map" data-campus-map data-campus-zoomed="false" aria-label="Plan interactif du collège">
+                                <div class="campus-grid" aria-hidden="true"></div>
+                                <div class="campus-compass" aria-hidden="true">
+                                    <span>N</span>
+                                    <i></i>
+                                </div>
 
-                        <h2>Carte Interactive</h2>
-                        <p>Une vue fidèle pour explorer chaque recoin du Collège Marie-Anne.</p>
+                                <button class="campus-zone campus-zone--north is-active" type="button" data-campus-zone="north" data-campus-kind="learning" aria-pressed="true">
+                                    <strong>Bloc Nord</strong>
+                                    <span>Salles de classe</span>
+                                </button>
+                                <button class="campus-zone campus-zone--west" type="button" data-campus-zone="west" data-campus-kind="access" aria-pressed="false">
+                                    <strong>Aile Ouest</strong>
+                                    <span>Primaire et préscolaire</span>
+                                </button>
+                                <button class="campus-zone campus-zone--south" type="button" data-campus-zone="south" data-campus-kind="life" aria-pressed="false">
+                                    <strong>Bloc Sud</strong>
+                                    <span>Labos et grande salle</span>
+                                </button>
+                                <button class="campus-zone campus-zone--east" type="button" data-campus-zone="east" data-campus-kind="learning" aria-pressed="false">
+                                    <strong>Aile Est</strong>
+                                    <span>Secondaire et services</span>
+                                </button>
+                                <button class="campus-zone campus-zone--courtyard" type="button" data-campus-zone="courtyard" data-campus-kind="life" aria-pressed="false">
+                                    <strong>Cour centrale</strong>
+                                    <span>Rassemblements et circulation</span>
+                                </button>
+
+                                <button class="campus-point campus-point--entry" type="button" data-campus-zone="entry" data-campus-kind="access" aria-pressed="false">
+                                    <span class="campus-point-label">Entrée principale</span>
+                                </button>
+                                <button class="campus-point campus-point--library" type="button" data-campus-zone="library" data-campus-kind="learning" aria-pressed="false">
+                                    <span class="campus-point-label">Bibliothèque</span>
+                                </button>
+                                <button class="campus-point campus-point--lab" type="button" data-campus-zone="lab" data-campus-kind="learning" aria-pressed="false">
+                                    <span class="campus-point-label">Laboratoire</span>
+                                </button>
+                                <button class="campus-point campus-point--sanitary" type="button" data-campus-zone="sanitary" data-campus-kind="life" aria-pressed="false">
+                                    <span class="campus-point-label">Sanitaires</span>
+                                </button>
+                            </div>
+
+                            <aside class="odyssee-panel">
+                                <span class="tag-map">Zone sélectionnée</span>
+                                <div id="info-panel" class="info-panel">
+                                    <h3 id="panel-title">Bloc Nord</h3>
+                                    <p id="panel-desc">Les salles de classe principales sont regroupées dans cette aile, pensée pour les parcours quotidiens les plus fréquents.</p>
+                                    <dl class="campus-detail-list">
+                                        <div>
+                                            <dt>Type</dt>
+                                            <dd id="panel-type">Apprendre</dd>
+                                        </div>
+                                        <div>
+                                            <dt>Repères</dt>
+                                            <dd id="panel-tags">Cours, circulation, étage</dd>
+                                        </div>
+                                    </dl>
+                                    <div class="campus-panel-actions">
+                                        <a class="btn-read" id="panel-link" href="contact.html">Signaler une précision</a>
+                                    </div>
+                                </div>
+
+                                <div class="odyssee-legend" aria-label="Légende du plan">
+                                    <div>
+                                        <span class="legend-swatch legend-swatch--main"></span>
+                                        <strong>Volumes principaux</strong>
+                                    </div>
+                                    <div>
+                                        <span class="legend-swatch legend-swatch--courtyard"></span>
+                                        <strong>Espace ouvert</strong>
+                                    </div>
+                                    <div>
+                                        <span class="legend-swatch legend-swatch--point"></span>
+                                        <strong>Repères interactifs</strong>
+                                    </div>
+                                </div>
+
+                                <div class="odyssee-notes">
+                                    <p><strong id="campus-counter">9 zones disponibles.</strong> Survolez, filtrez ou lancez le parcours pour explorer le bâtiment étape par étape.</p>
+                                </div>
+                            </aside>
+                        </div>
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card odyssee-memory-card">
                     <div class="card-image" style="background-image: url('IMG_0258.png');">
                         <span class="category">Histoires</span>
                     </div>
@@ -82,7 +157,6 @@
                         <a href="contact.html" class="btn-read">Proposer un souvenir</a>
                     </div>
                 </div>
-
             </div>
         </section>
     </main>

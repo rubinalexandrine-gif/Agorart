@@ -40,13 +40,69 @@
             <div class="talent-detail-image" style="background-image: url('IMG_0315.jpeg');" role="img" aria-label="Illustration Dessin"></div>
         </section>
 
-        <section class="talent-detail-list">
-            <h2>Ce que cette page peut accueillir</h2>
-            <ul>
-                <li>Croquis, portraits, illustrations et peintures</li>
-                <li>Techniques traditionnelles ou num&eacute;riques</li>
-                <li>Galeries, d&eacute;fis visuels et inspirations</li>
-            </ul>
+        <section class="talent-interactive-board" data-talent-board>
+            <div class="talent-card-stack" aria-label="Explorer le dessin">
+                <button class="talent-pick-card" type="button" data-talent-card="sketch" aria-pressed="true">
+                    <span>01 Croquis</span>
+                    <strong>Commencer par l'id&eacute;e</strong>
+                    <p>Esquisses rapides, formes, proportions et recherche visuelle.</p>
+                </button>
+                <button class="talent-pick-card" type="button" data-talent-card="color" aria-pressed="false">
+                    <span>02 Couleur</span>
+                    <strong>Donner une atmosph&egrave;re</strong>
+                    <p>Ombres, lumi&egrave;res, palettes et textures pour faire vivre l'image.</p>
+                </button>
+                <button class="talent-pick-card" type="button" data-talent-card="gallery" aria-pressed="false">
+                    <span>03 Galerie</span>
+                    <strong>Composer une s&eacute;rie</strong>
+                    <p>Portraits, affiches, personnages ou paysages pr&eacute;sent&eacute;s comme une collection.</p>
+                </button>
+            </div>
+
+            <div class="talent-panel-stage">
+                <article class="talent-panel" data-talent-panel="sketch">
+                    <div class="talent-panel-visual" style="--panel-image: url('IMG_0315.jpeg');"></div>
+                    <div class="talent-panel-copy">
+                        <h2>Le croquis capte l'&eacute;lan</h2>
+                        <p>Avant le dessin final, il y a la recherche : essayer, rater, recommencer et trouver la bonne ligne.</p>
+                        <ul>
+                            <li>Portraits, silhouettes et objets</li>
+                            <li>Composition et perspective simple</li>
+                            <li>Carnets de recherche et essais</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="talent-panel" data-talent-panel="color">
+                    <div class="talent-panel-visual" style="--panel-image: url('IMG_0317.jpeg');"></div>
+                    <div class="talent-panel-copy">
+                        <h2>La couleur change le message</h2>
+                        <p>Un m&ecirc;me dessin devient doux, dramatique ou joyeux selon la lumi&egrave;re et la palette choisies.</p>
+                        <ul>
+                            <li>Crayons, peinture, marqueurs ou num&eacute;rique</li>
+                            <li>Contrastes, valeurs et harmonies</li>
+                            <li>Textures et finitions</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="talent-panel" data-talent-panel="gallery">
+                    <div class="talent-panel-visual" style="--panel-image: url('IMG_0258.png');"></div>
+                    <div class="talent-panel-copy">
+                        <h2>Une galerie donne du rythme</h2>
+                        <p>Chaque oeuvre peut &ecirc;tre accompagn&eacute;e d'un titre, d'une intention et d'une &eacute;tape de fabrication.</p>
+                        <ul>
+                            <li>D&eacute;fis visuels mensuels</li>
+                            <li>Expositions de classes</li>
+                            <li>Affiches et illustrations Agorart</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="talent-mini-grid">
+            <article class="talent-mini-card"><strong>Observer</strong><span>Voir les formes avant de vouloir les d&eacute;corer.</span></article>
+            <article class="talent-mini-card"><strong>R&eacute;p&eacute;ter</strong><span>Refaire un geste jusqu'&agrave; le rendre plus juste.</span></article>
+            <article class="talent-mini-card"><strong>Signer</strong><span>Assumer une intention personnelle dans l'image.</span></article>
         </section>
     </main>
 

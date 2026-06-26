@@ -183,6 +183,239 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setDanceStyle('hiphop');
     }
+
+    const campusMap = document.querySelector('[data-campus-map]');
+    const campusItems = document.querySelectorAll('[data-campus-zone]');
+    const campusFilters = document.querySelectorAll('[data-campus-filter]');
+    const campusTourButton = document.querySelector('[data-campus-tour]');
+    const campusZoomButton = document.querySelector('[data-campus-zoom]');
+    const campusCounter = document.getElementById('campus-counter');
+    const panelTitle = document.getElementById('panel-title');
+    const panelDesc = document.getElementById('panel-desc');
+    const panelType = document.getElementById('panel-type');
+    const panelTags = document.getElementById('panel-tags');
+    const panelLink = document.getElementById('panel-link');
+
+    const campusZones = {
+        north: {
+            title: 'Bloc Nord',
+            desc: 'Les salles de classe principales sont regroupées dans cette aile, pensée pour les parcours quotidiens les plus fréquents.',
+            type: 'Apprendre',
+            tags: 'Cours, circulation, étage',
+            link: 'contact.html'
+        },
+        west: {
+            title: 'Aile Ouest',
+            desc: 'Cette aile regroupe les salles de classe des élèves du primaire et du préscolaire.',
+            type: 'Primaire et préscolaire',
+            tags: 'Salles de classe, jeunes élèves, encadrement',
+            link: 'contact.html'
+        },
+        south: {
+            title: 'Bloc Sud',
+            desc: 'Le bloc sud rassemble les deux laboratoires, chimie et physique, ainsi que la grande salle.',
+            type: 'Sciences et rassemblements',
+            tags: 'Labo chimie, labo physique, grande salle',
+            link: 'contact.html'
+        },
+        east: {
+            title: 'Aile Est',
+            desc: 'Cette aile correspond à la partie secondaire et regroupe aussi le bar, l’infirmerie et la salle informatique.',
+            type: 'Secondaire et services',
+            tags: 'Secondaire, bar, infirmerie, salle informatique',
+            link: 'contact.html'
+        },
+        courtyard: {
+            title: 'Cour centrale',
+            desc: 'Le cœur ouvert du bâtiment, utile pour les rassemblements, les transitions et les temps informels.',
+            type: 'Vie scolaire',
+            tags: 'Rassemblement, circulation, plein air',
+            link: 'contact.html'
+        },
+        entry: {
+            title: 'Entrée principale',
+            desc: 'Le repère d’arrivée pour les élèves, les familles et les visiteurs avant de rejoindre l’accueil.',
+            type: 'Accès',
+            tags: 'Arrivée, contrôle, orientation',
+            link: 'contact.html'
+        },
+        library: {
+            title: 'Bibliothèque',
+            desc: 'Un espace calme pour lire, rechercher, travailler en autonomie ou préparer un projet.',
+            type: 'Apprendre',
+            tags: 'Lecture, recherche, silence',
+            link: 'talent-litterature.html'
+        },
+        lab: {
+            title: 'Laboratoire',
+            desc: 'Un lieu d’expérimentation où les cours deviennent plus pratiques et visuels.',
+            type: 'Apprendre',
+            tags: 'Sciences, expériences, sécurité',
+            link: 'contact.html'
+        },
+        sanitary: {
+            title: 'Sanitaires',
+            desc: 'Un repère pratique à identifier rapidement dans les déplacements quotidiens.',
+            type: 'Vie scolaire',
+            tags: 'Service, proximité, quotidien',
+            link: 'contact.html'
+        }
+    };
+
+    if (campusMap && campusItems.length > 0) {
+        let activeFilter = 'all';
+        let tourTimer = null;
+        const tourOrder = ['entry', 'west', 'north', 'library', 'courtyard', 'east', 'lab', 'south', 'sanitary'];
+
+        function updateCampusPanel(zoneKey) {
+            const zone = campusZones[zoneKey];
+            if (!zone || !panelTitle || !panelDesc) return;
+
+            panelTitle.innerText = zone.title;
+            panelDesc.innerText = zone.desc;
+
+            if (panelType) panelType.innerText = zone.type;
+            if (panelTags) panelTags.innerText = zone.tags;
+            if (panelLink) panelLink.setAttribute('href', zone.link);
+        }
+
+        function stopCampusTour() {
+            if (tourTimer) {
+                clearInterval(tourTimer);
+                tourTimer = null;
+            }
+
+            campusTourButton?.classList.remove('is-active');
+            campusTourButton?.setAttribute('aria-pressed', 'false');
+            campusItems.forEach((item) => item.classList.remove('is-tour-step'));
+        }
+
+        function selectCampusZone(zoneKey, options = {}) {
+            const selectedItem = Array.from(campusItems).find((item) => item.dataset.campusZone === zoneKey);
+            if (!selectedItem) return;
+
+            campusItems.forEach((item) => {
+                const isActive = item.dataset.campusZone === zoneKey;
+                item.classList.toggle('is-active', isActive);
+                item.classList.toggle('is-tour-step', Boolean(options.tour) && isActive);
+                item.setAttribute('aria-pressed', String(isActive));
+            });
+
+            updateCampusPanel(zoneKey);
+
+            if (!options.keepTour) {
+                stopCampusTour();
+            }
+        }
+
+        function applyCampusFilter(filter) {
+            activeFilter = filter;
+
+            campusFilters.forEach((button) => {
+                const isActive = button.dataset.campusFilter === filter;
+                button.classList.toggle('is-active', isActive);
+                button.setAttribute('aria-pressed', String(isActive));
+            });
+
+            let visibleCount = 0;
+            campusItems.forEach((item) => {
+                const isVisible = filter === 'all' || item.dataset.campusKind === filter;
+                item.classList.toggle('is-muted', !isVisible);
+                if (isVisible) visibleCount++;
+            });
+
+            if (campusCounter) {
+                const suffix = filter === 'all' ? 'zones disponibles.' : 'zones dans ce filtre.';
+                campusCounter.innerText = `${visibleCount} ${suffix}`;
+            }
+        }
+
+        campusItems.forEach((item) => {
+            item.addEventListener('click', () => {
+                selectCampusZone(item.dataset.campusZone);
+            });
+        });
+
+        campusFilters.forEach((button) => {
+            button.addEventListener('click', () => {
+                stopCampusTour();
+                applyCampusFilter(button.dataset.campusFilter);
+            });
+        });
+
+        campusTourButton?.setAttribute('aria-pressed', 'false');
+        campusTourButton?.addEventListener('click', () => {
+            if (tourTimer) {
+                stopCampusTour();
+                return;
+            }
+
+            let index = 0;
+            campusTourButton.classList.add('is-active');
+            campusTourButton.setAttribute('aria-pressed', 'true');
+            applyCampusFilter('all');
+            selectCampusZone(tourOrder[index], { tour: true, keepTour: true });
+
+            tourTimer = setInterval(() => {
+                index = (index + 1) % tourOrder.length;
+                selectCampusZone(tourOrder[index], { tour: true, keepTour: true });
+            }, 2200);
+        });
+
+        campusZoomButton?.setAttribute('aria-pressed', 'false');
+        campusZoomButton?.addEventListener('click', () => {
+            const isZoomed = campusMap.dataset.campusZoomed === 'true';
+            campusMap.dataset.campusZoomed = String(!isZoomed);
+            campusZoomButton.classList.toggle('is-active', !isZoomed);
+            campusZoomButton.setAttribute('aria-pressed', String(!isZoomed));
+        });
+
+        campusMap.addEventListener('keydown', (event) => {
+            const activeElement = document.activeElement;
+            if (!activeElement?.matches('[data-campus-zone]')) return;
+            if (!['ArrowRight', 'ArrowDown', 'ArrowLeft', 'ArrowUp'].includes(event.key)) return;
+
+            event.preventDefault();
+            const visibleItems = Array.from(campusItems).filter((item) => {
+                return activeFilter === 'all' || item.dataset.campusKind === activeFilter;
+            });
+            const currentIndex = visibleItems.indexOf(activeElement);
+            const direction = ['ArrowRight', 'ArrowDown'].includes(event.key) ? 1 : -1;
+            const nextIndex = (currentIndex + direction + visibleItems.length) % visibleItems.length;
+            visibleItems[nextIndex].focus();
+            selectCampusZone(visibleItems[nextIndex].dataset.campusZone);
+        });
+
+        applyCampusFilter('all');
+        selectCampusZone('north');
+    }
+
+    document.querySelectorAll('[data-talent-board]').forEach((board) => {
+        const cards = board.querySelectorAll('[data-talent-card]');
+        const panels = board.querySelectorAll('[data-talent-panel]');
+
+        function selectTalentCard(targetKey) {
+            cards.forEach((card) => {
+                const isActive = card.dataset.talentCard === targetKey;
+                card.classList.toggle('is-active', isActive);
+                card.setAttribute('aria-pressed', String(isActive));
+            });
+
+            panels.forEach((panel) => {
+                panel.classList.toggle('is-active', panel.dataset.talentPanel === targetKey);
+            });
+        }
+
+        cards.forEach((card) => {
+            card.addEventListener('click', () => {
+                selectTalentCard(card.dataset.talentCard);
+            });
+        });
+
+        if (cards.length > 0) {
+            selectTalentCard(cards[0].dataset.talentCard);
+        }
+    });
 });
 
 document.addEventListener('DOMContentLoaded', () => {

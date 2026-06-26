@@ -40,13 +40,69 @@
             <div class="talent-detail-image" style="background-image: url('IMG_0309.jpeg');" role="img" aria-label="Illustration Coiffure"></div>
         </section>
 
-        <section class="talent-detail-list">
-            <h2>Ce que cette page peut accueillir</h2>
-            <ul>
-                <li>Coupes, tresses, soins et mises en forme</li>
-                <li>Cr&eacute;ations inspir&eacute;es par la mode, la culture et l'identit&eacute;</li>
-                <li>Portraits de jeunes talents et galeries de r&eacute;alisations</li>
-            </ul>
+        <section class="talent-interactive-board" data-talent-board>
+            <div class="talent-card-stack" aria-label="Explorer la coiffure">
+                <button class="talent-pick-card" type="button" data-talent-card="style" aria-pressed="true">
+                    <span>01 Style</span>
+                    <strong>Changer une silhouette</strong>
+                    <p>Coupes, tresses, locks, chignons ou brushing pour affirmer une identit&eacute;.</p>
+                </button>
+                <button class="talent-pick-card" type="button" data-talent-card="care" aria-pressed="false">
+                    <span>02 Soin</span>
+                    <strong>Pr&eacute;parer la mati&egrave;re</strong>
+                    <p>Hydrater, prot&eacute;ger, d&eacute;m&ecirc;ler et respecter la texture du cheveu.</p>
+                </button>
+                <button class="talent-pick-card" type="button" data-talent-card="showcase" aria-pressed="false">
+                    <span>03 Galerie</span>
+                    <strong>Montrer le r&eacute;sultat</strong>
+                    <p>Avant-apr&egrave;s, portraits et inspirations pour valoriser le travail.</p>
+                </button>
+            </div>
+
+            <div class="talent-panel-stage">
+                <article class="talent-panel" data-talent-panel="style">
+                    <div class="talent-panel-visual" style="--panel-image: url('IMG_0309.jpeg');"></div>
+                    <div class="talent-panel-copy">
+                        <h2>Une coiffure raconte une pr&eacute;sence</h2>
+                        <p>Chaque choix de forme, de volume et de ligne peut transformer l'allure sans effacer la personne.</p>
+                        <ul>
+                            <li>Tresses, vanilles, chignons et coiffures protectrices</li>
+                            <li>Coupes courtes, franges, d&eacute;grad&eacute;s et finitions</li>
+                            <li>Styles pour concours, sc&egrave;ne ou portraits</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="talent-panel" data-talent-panel="care">
+                    <div class="talent-panel-visual" style="--panel-image: url('IMG_0310.jpeg');"></div>
+                    <div class="talent-panel-copy">
+                        <h2>Le soin donne de la tenue au style</h2>
+                        <p>Une bonne cr&eacute;ation commence par un cheveu compris : texture, fragilit&eacute;, volume et entretien.</p>
+                        <ul>
+                            <li>Routine simple avant et apr&egrave;s coiffure</li>
+                            <li>Conseils de protection et de dur&eacute;e</li>
+                            <li>Produits, gestes et erreurs &agrave; &eacute;viter</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="talent-panel" data-talent-panel="showcase">
+                    <div class="talent-panel-visual" style="--panel-image: url('IMG_0313.jpeg');"></div>
+                    <div class="talent-panel-copy">
+                        <h2>Une galerie pour les jeunes coiffeurs</h2>
+                        <p>La page peut devenir un carnet de r&eacute;alisations avec photos, explications et signatures.</p>
+                        <ul>
+                            <li>Portraits des cr&eacute;ateurs</li>
+                            <li>Photos des coiffures termin&eacute;es</li>
+                            <li>Mini fiches : temps, technique, inspiration</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="talent-mini-grid">
+            <article class="talent-mini-card"><strong>Observer</strong><span>Comprendre le visage, la texture et l'occasion.</span></article>
+            <article class="talent-mini-card"><strong>Construire</strong><span>Travailler proprement, section par section.</span></article>
+            <article class="talent-mini-card"><strong>Finaliser</strong><span>Soigner les d&eacute;tails qui rendent la coiffure nette.</span></article>
         </section>
     </main>
 

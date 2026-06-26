@@ -34,19 +34,75 @@
             <div class="talent-detail-copy">
                 <span class="category" style="position: static; display: inline-block;">Gastronomie</span>
                 <h1>Cuisine</h1>
-                <p>La cuisine r&eacute;unit cr?ativit?, partage et technique autour de recettes qui racontent une culture ou une envie.</p>
+                <p>La cuisine r&eacute;unit cr&eacute;ativit&eacute;, partage et technique autour de recettes qui racontent une culture ou une envie.</p>
                 <a href="index.html#talents" class="btn-read">Retour aux talents</a>
             </div>
             <div class="talent-detail-image" style="background-image: url('IMG_0318.jpeg');" role="img" aria-label="Illustration Cuisine"></div>
         </section>
 
-        <section class="talent-detail-list">
-            <h2>Ce que cette page peut accueillir</h2>
-            <ul>
-                <li>Recettes, desserts, plats et pr&eacute;sentations</li>
-                <li>Astuces, &eacute;tapes et inspirations culinaires</li>
-                <li>Photos, d&eacute;fis et d&eacute;couvertes gourmandes</li>
-            </ul>
+        <section class="talent-interactive-board" data-talent-board>
+            <div class="talent-card-stack" aria-label="Explorer la cuisine">
+                <button class="talent-pick-card" type="button" data-talent-card="recipe" aria-pressed="true">
+                    <span>01 Recette</span>
+                    <strong>Construire un plat</strong>
+                    <p>Ingr&eacute;dients, &eacute;tapes, timing et gestes essentiels.</p>
+                </button>
+                <button class="talent-pick-card" type="button" data-talent-card="plate" aria-pressed="false">
+                    <span>02 Dressage</span>
+                    <strong>Rendre le plat lisible</strong>
+                    <p>Couleurs, proportions, textures et pr&eacute;sentation finale.</p>
+                </button>
+                <button class="talent-pick-card" type="button" data-talent-card="share" aria-pressed="false">
+                    <span>03 Partage</span>
+                    <strong>Raconter une culture</strong>
+                    <p>Recettes familiales, souvenirs, d&eacute;fis et d&eacute;couvertes gourmandes.</p>
+                </button>
+            </div>
+
+            <div class="talent-panel-stage">
+                <article class="talent-panel" data-talent-panel="recipe">
+                    <div class="talent-panel-visual" style="--panel-image: url('IMG_0318.jpeg');"></div>
+                    <div class="talent-panel-copy">
+                        <h2>Une recette est une m&eacute;thode</h2>
+                        <p>La cr&eacute;ativit&eacute; fonctionne mieux quand les &eacute;tapes sont claires et reproductibles.</p>
+                        <ul>
+                            <li>Entr&eacute;es, plats, desserts et boissons</li>
+                            <li>Temps, portions et astuces</li>
+                            <li>Photos des &eacute;tapes</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="talent-panel" data-talent-panel="plate">
+                    <div class="talent-panel-visual" style="--panel-image: url('IMG_0319.jpeg');"></div>
+                    <div class="talent-panel-copy">
+                        <h2>Le dressage attire avant la premi&egrave;re bouch&eacute;e</h2>
+                        <p>Un plat se regarde aussi : contraste, hauteur, propret&eacute; et choix du support comptent.</p>
+                        <ul>
+                            <li>Couleurs et textures</li>
+                            <li>Assiettes, verrines et portions</li>
+                            <li>Photos culinaires</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="talent-panel" data-talent-panel="share">
+                    <div class="talent-panel-visual" style="--panel-image: url('IMG_0258.png');"></div>
+                    <div class="talent-panel-copy">
+                        <h2>Cuisiner, c'est aussi transmettre</h2>
+                        <p>Une recette peut raconter une maison, une f&ecirc;te, un pays ou une invention personnelle.</p>
+                        <ul>
+                            <li>Recettes de famille</li>
+                            <li>D&eacute;fis gourmands</li>
+                            <li>D&eacute;gustations et votes</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="talent-mini-grid">
+            <article class="talent-mini-card"><strong>Pr&eacute;parer</strong><span>Lire la recette avant de commencer.</span></article>
+            <article class="talent-mini-card"><strong>Go&ucirc;ter</strong><span>Corriger l'assaisonnement au bon moment.</span></article>
+            <article class="talent-mini-card"><strong>Partager</strong><span>Expliquer l'histoire du plat autant que sa technique.</span></article>
         </section>
     </main>
 

@@ -34,19 +34,75 @@
             <div class="talent-detail-copy">
                 <span class="category" style="position: static; display: inline-block;">Beaut&eacute;</span>
                 <h1>Onglerie</h1>
-                <p>L&rsquo;onglerie transforme un d?tail en expression cr?ative, entre pr&eacute;cision, couleur et style.</p>
+                <p>L&rsquo;onglerie transforme un d&eacute;tail en expression cr&eacute;ative, entre pr&eacute;cision, couleur et style.</p>
                 <a href="index.html#talents" class="btn-read">Retour aux talents</a>
             </div>
             <div class="talent-detail-image" style="background-image: url('IMG_0319.jpeg');" role="img" aria-label="Illustration Onglerie"></div>
         </section>
 
-        <section class="talent-detail-list">
-            <h2>Ce que cette page peut accueillir</h2>
-            <ul>
-                <li>Nail art, formes, couleurs et finitions</li>
-                <li>Inspirations saisonni&egrave;res ou personnalis&eacute;es</li>
-                <li>Photos de cr&eacute;ations et conseils de pratique</li>
-            </ul>
+        <section class="talent-interactive-board" data-talent-board>
+            <div class="talent-card-stack" aria-label="Explorer l'onglerie">
+                <button class="talent-pick-card" type="button" data-talent-card="shape" aria-pressed="true">
+                    <span>01 Forme</span>
+                    <strong>Construire la base</strong>
+                    <p>Longueur, forme, sym&eacute;trie et pr&eacute;paration avant la couleur.</p>
+                </button>
+                <button class="talent-pick-card" type="button" data-talent-card="art" aria-pressed="false">
+                    <span>02 Nail art</span>
+                    <strong>Créer le d&eacute;tail</strong>
+                    <p>Motifs, strass, lignes, textures et choix de palette.</p>
+                </button>
+                <button class="talent-pick-card" type="button" data-talent-card="care" aria-pressed="false">
+                    <span>03 Tenue</span>
+                    <strong>Prot&eacute;ger le r&eacute;sultat</strong>
+                    <p>Conseils simples pour garder une cr&eacute;ation nette plus longtemps.</p>
+                </button>
+            </div>
+
+            <div class="talent-panel-stage">
+                <article class="talent-panel" data-talent-panel="shape">
+                    <div class="talent-panel-visual" style="--panel-image: url('IMG_0319.jpeg');"></div>
+                    <div class="talent-panel-copy">
+                        <h2>La forme donne le caract&egrave;re</h2>
+                        <p>Carr&eacute;, amande, court ou long : la silhouette de l'ongle change toute la lecture du style.</p>
+                        <ul>
+                            <li>Pr&eacute;paration et limage</li>
+                            <li>Choix selon la main et l'usage</li>
+                            <li>Base propre avant d&eacute;cor</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="talent-panel" data-talent-panel="art">
+                    <div class="talent-panel-visual" style="--panel-image: url('IMG_0310.jpeg');"></div>
+                    <div class="talent-panel-copy">
+                        <h2>Le petit format demande de la pr&eacute;cision</h2>
+                        <p>L'onglerie est un art miniature : chaque ligne compte, chaque couleur change le rendu.</p>
+                        <ul>
+                            <li>French revisit&eacute;e, motifs et couleurs</li>
+                            <li>Th&egrave;mes saisonniers ou personnalis&eacute;s</li>
+                            <li>Photos avant-apr&egrave;s</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="talent-panel" data-talent-panel="care">
+                    <div class="talent-panel-visual" style="--panel-image: url('IMG_0318.jpeg');"></div>
+                    <div class="talent-panel-copy">
+                        <h2>La finition fait durer l'effet</h2>
+                        <p>Une belle pose doit aussi &ecirc;tre expliqu&eacute;e : entretien, gestes &agrave; &eacute;viter et retouches possibles.</p>
+                        <ul>
+                            <li>Protection et hydratation</li>
+                            <li>Conseils de tenue</li>
+                            <li>Fiches pratiques pour d&eacute;buter</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="talent-mini-grid">
+            <article class="talent-mini-card"><strong>Nettoyer</strong><span>Une base propre rend le rendu plus professionnel.</span></article>
+            <article class="talent-mini-card"><strong>Tracer</strong><span>La patience transforme une petite surface en oeuvre.</span></article>
+            <article class="talent-mini-card"><strong>Photographier</strong><span>Une bonne lumi&egrave;re valorise les d&eacute;tails.</span></article>
         </section>
     </main>
 
